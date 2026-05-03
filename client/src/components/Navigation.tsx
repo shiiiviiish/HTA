@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navItems = [
+  { label: 'Contact', path: '/contact' },
   { label: 'New In', path: '/' },
   { label: 'Paintings', path: '/' },
   { label: 'Bookmarks', path: '/' },

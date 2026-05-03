@@ -1,5 +1,6 @@
 // filepath: c:\Users\sv176\OneDrive\Desktop\happiness_through_art\client\src\App.tsx
 import React from 'react';
+import ContactPage from './components/ContactPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
@@ -21,6 +22,7 @@ function App() {
         <SaleBanner />
         <Header />
         <Routes>
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
