@@ -3,14 +3,14 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navItems = [
-  { label: 'Contact', path: '/contact' },
   { label: 'New In', path: '/' },
   { label: 'Paintings', path: '/' },
   { label: 'Bookmarks', path: '/' },
   { label: 'Art Prints', path: '/' },
   { label: 'Gifts', path: '/' },
   { label: 'Therapy', path: '/therapy' },
-  { label: 'About Kavya', path: '/about' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export function Navigation() {
