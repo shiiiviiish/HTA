@@ -11,6 +11,8 @@ import { SaleBanner } from './components/SaleBanner';
 import { Header } from './components/Header';
 import Footer from './components/Footer';
 import { CartProvider } from './context/CartContext';
+import TherapyPage from './components/TherapyPage';
+import AboutPage from './components/AboutPage';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path="/therapy" element={<TherapyPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer/>
       </Router>

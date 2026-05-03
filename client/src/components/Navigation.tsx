@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Art Prints', path: '/' },
   { label: 'Gifts', path: '/' },
   { label: 'Therapy', path: '/therapy' },
+  { label: 'About Kavya', path: '/about' },
 ];
 
 export function Navigation() {
