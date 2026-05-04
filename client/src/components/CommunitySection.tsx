@@ -48,7 +48,7 @@ const CommunitySection = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-full font-medium" style={{color: '#FAA300'}}>
+          <a href="https://www.instagram.com/happinessthroughart" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-full font-medium" style={{color: '#FAA300'}}>
             <Instagram className="w-5 h-5" />
             Follow on Instagram
           </a>

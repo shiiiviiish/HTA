@@ -36,7 +36,7 @@ const ContactPage = () => {
                 </div>
               </a>
 
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl" style={{backgroundColor: '#F4538A'}}>
+              <a href="https://www.instagram.com/happinessthroughart" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl" style={{backgroundColor: '#F4538A'}}>
                 <span className="text-3xl">📸</span>
                 <div>
                   <p className="font-bold text-white">Instagram</p>

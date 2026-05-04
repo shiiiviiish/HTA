@@ -29,8 +29,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Your e-mail"
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2"
-                style={{'--tw-ring-color': '#59D5E0'} as React.CSSProperties}
+                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none"
               />
               <button className="p-3 text-white rounded-lg transition-colors" style={{backgroundColor: '#FAA300'}}>
                 <ArrowRight className="w-6 h-6" />
@@ -43,8 +42,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4">ABOUT</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 hover:text-black">About Kavya</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Therapy</a></li>
+              <li><a href="/about" className="text-gray-600 hover:text-black">About Kavya</a></li>
+              <li><a href="/therapy" className="text-gray-600 hover:text-black">Therapy</a></li>
               <li><a href="#" className="text-gray-600 hover:text-black">Collaborations</a></li>
             </ul>
           </div>
@@ -62,7 +61,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4">HELP</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 hover:text-black">Contact us</a></li>
+              <li><a href="/contact" className="text-gray-600 hover:text-black">Contact us</a></li>
               <li><a href="#" className="text-gray-600 hover:text-black">FAQs</a></li>
               <li><a href="#" className="text-gray-600 hover:text-black">Shipping</a></li>
               <li><a href="#" className="text-gray-600 hover:text-black">Returns</a></li>
@@ -84,7 +83,7 @@ const Footer = () => {
             © {currentYear} Happiness Through Art by Kavya Atray. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-600 hover:text-black">
+            <a href="https://www.instagram.com/happinessthroughart" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black">
               <Instagram className="w-6 h-6" />
             </a>
           </div>
