@@ -5,7 +5,7 @@ const exhibitions = [
   {
     id: 'the-shimla-exhibit',
     title: 'The Shimla Exhibit',
-    date: '2026',
+    date: '13/04/26 - 15/04/26',
     location: 'Shimla',
     color: '#F5DD61',
     textColor: '#374151',
@@ -13,7 +13,7 @@ const exhibitions = [
   {
     id: 'sector-17-unfiltered',
     title: 'Sector 17: Unfiltered',
-    date: '',
+    date: '29/03/2026',
     location: 'Sector 17, Chandigarh',
     color: '#59D5E0',
     textColor: '#ffffff',
@@ -21,7 +21,7 @@ const exhibitions = [
   {
     id: 'creative-hub-chitkara',
     title: 'Creative Hub (Chitkara)',
-    date: '',
+    date: '20/11/2025',
     location: 'Chitkara University',
     color: '#F4538A',
     textColor: '#ffffff',
