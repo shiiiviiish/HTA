@@ -9,12 +9,12 @@ const exhibitionData: Record<string, {
   color: string;
   photos: string[];
 }> = {
-  'colors-of-healing': {
-    title: 'Colors of Healing',
-    date: 'March 2024',
-    location: 'Delhi Art Gallery, New Delhi',
+  'the-shimla-exhibit': {
+    title: 'The Shimla Exhibit',
+    date: '2026',
+    location: 'Shimla',
     color: '#F5DD61',
-    description: 'An intimate exhibition exploring how color therapy and expressive painting helped participants process emotions and find inner calm. Over 20 original works were created during live therapy sessions with Kavya Atray. Each piece tells a unique story of healing, hope, and self-discovery through art.',
+    description: 'A beautiful exhibition held in the hills of Shimla, bringing art and healing to the mountains. Kavya Atray showcased original works inspired by nature, peace, and the journey of self-discovery. Visitors experienced art in its most raw and honest form.',
     photos: [
       'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600',
       'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600',
@@ -22,12 +22,12 @@ const exhibitionData: Record<string, {
       'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600',
     ],
   },
-  'brushstrokes-and-breaths': {
-    title: 'Brushstrokes and Breaths',
-    date: 'July 2024',
-    location: 'The Creative Studio, Gurugram',
+  'sector-17-unfiltered': {
+    title: 'Sector 17: Unfiltered',
+    date: '',
+    location: 'Sector 17, Chandigarh',
     color: '#59D5E0',
-    description: 'A weekend workshop where 30 participants learned mindful painting techniques. Each brushstroke was paired with breathing exercises, creating a deeply meditative art experience. Participants left with original artwork and tools to manage stress and anxiety through creativity.',
+    description: 'An open and unapologetic showcase of art at the heart of Chandigarh. Sector 17: Unfiltered was about breaking boundaries and expressing what is real. Art that does not ask for permission — it simply speaks.',
     photos: [
       'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600',
       'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600',
@@ -35,12 +35,12 @@ const exhibitionData: Record<string, {
       'https://images.unsplash.com/photo-1578926288207-a90a5366e123?w=600',
     ],
   },
-  'art-as-medicine': {
-    title: 'Art as Medicine',
-    date: 'November 2024',
-    location: 'Community Center, Sonipat',
+  'creative-hub-chitkara': {
+    title: 'Creative Hub (Chitkara)',
+    date: '',
+    location: 'Chitkara University',
     color: '#F4538A',
-    description: 'A community-focused event bringing art therapy to local schools and NGOs. Over 100 children participated in guided art sessions designed to boost confidence and emotional expression. This event was a reminder that art is not just beautiful — it is transformative and healing.',
+    description: 'A vibrant workshop and exhibition at Chitkara University where students discovered the healing power of art. Creative Hub was a celebration of young minds, bold ideas, and the belief that creativity can change how we feel from the inside out.',
     photos: [
       'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600',
       'https://images.unsplash.com/photo-1578926288207-a90a5366e123?w=600',
@@ -79,7 +79,7 @@ const ExhibitionPage = () => {
           Back to Our Journey
         </button>
         <h1 className="text-5xl font-serif mb-4 text-white">{ex.title}</h1>
-        <p className="text-white opacity-80 text-lg">{ex.date} - {ex.location}</p>
+        <p className="text-white opacity-80 text-lg">{ex.date} {ex.location}</p>
       </div>
 
       <div className="py-16 px-6 max-w-4xl mx-auto">
