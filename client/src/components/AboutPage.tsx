@@ -1,4 +1,5 @@
 import React from 'react';
+import photo1 from '../assets/kavyaabout1.jpg';
 
 const AboutPage = () => {
   return (
@@ -11,9 +12,7 @@ const AboutPage = () => {
 
       <div className="py-16 px-6 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-2xl h-80 flex items-center justify-center" style={{backgroundColor: '#59D5E0'}}>
-            <p className="text-white text-lg font-medium">Kavya's photo coming soon</p>
-          </div>
+          <img src={photo1} alt="Kavya Atray" className="w-full h-97 object-cover  object-[center_30%] rounded-2xl shadow-lg" />
           <div>
             <h2 className="text-3xl font-serif mb-6">Hi, I'm Kavya Atray</h2>
             <p className="text-gray-600 mb-4">

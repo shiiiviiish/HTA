@@ -1,30 +1,32 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import shimlaPhoto from '../assets/shimlaexhibit.jpg';
+import sector17Photo from '../assets/sector17.jpg';
 
 const exhibitions = [
   {
     id: 'the-shimla-exhibit',
     title: 'The Shimla Exhibit',
-    date: '13/04/26 - 15/04/26',
+    date: '2026',
     location: 'Shimla',
     color: '#F5DD61',
-    textColor: '#374151',
+    photo: shimlaPhoto,
   },
   {
     id: 'sector-17-unfiltered',
     title: 'Sector 17: Unfiltered',
-    date: '29/03/2026',
+    date: '',
     location: 'Sector 17, Chandigarh',
     color: '#59D5E0',
-    textColor: '#ffffff',
+    photo: sector17Photo,
   },
   {
     id: 'creative-hub-chitkara',
     title: 'Creative Hub (Chitkara)',
-    date: '20/11/2025',
+    date: '',
     location: 'Chitkara University',
     color: '#F4538A',
-    textColor: '#ffffff',
+    photo: null,
   },
 ];
 
@@ -49,13 +51,19 @@ const OurJourney = () => {
             <div
               key={ex.id}
               onClick={() => navigate('/exhibition/' + ex.id)}
-              className="rounded-2xl h-72 flex flex-col items-center justify-center p-6 text-center cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300"
+              className="rounded-2xl h-72 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
               style={{ backgroundColor: ex.color }}
             >
-              <p className="font-semibold text-lg mb-1" style={{ color: ex.textColor }}>{ex.title}</p>
-              <p className="text-sm opacity-80" style={{ color: ex.textColor }}>{ex.date}</p>
-              <p className="text-xs mt-3 opacity-60" style={{ color: ex.textColor }}>{ex.location}</p>
-              <p className="text-xs mt-4 font-semibold" style={{ color: ex.textColor }}>Tap to explore</p>
+              {ex.photo && (
+                <img src={ex.photo} alt={ex.title} className="absolute inset-0 w-full h-full object-cover" />
+              )}
+              <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl" />
+              <div className="relative z-10 h-full flex flex-col items-center justify-end p-6 text-center">
+                <p className="font-semibold text-lg mb-1 text-white">{ex.title}</p>
+                <p className="text-sm text-white opacity-80">{ex.date}</p>
+                <p className="text-sm font-bold text-white">{ex.location}</p>
+                <p className="text-xs mt-2 font-semibold text-white">Tap to explore</p>
+              </div>
             </div>
           ))}
         </div>
