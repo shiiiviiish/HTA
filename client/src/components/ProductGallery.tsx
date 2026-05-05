@@ -1,154 +1,56 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
 
-interface Product {
-  id: string;
-  name: string;
-  type: string;
-  price: number;
-  originalPrice: number;
-  image: string;
-  colors: string[];
-  onSale?: boolean;
-  featured?: boolean;
-}
-
-const products: Product[] = [
-  {
-    id: '1',
-    name: 'You & Me | Timeless',
-    type: 'Medium Photobook',
-    price: 1499,
-    originalPrice: 1699,
-    image: 'https://images.unsplash.com/photo-1506102383123-c8ef1e872756?auto=format&fit=crop&q=80',
-    colors: ['#F5F5F5'],
-    onSale: true,
-    featured: true
-  },
-  {
-    id: '2',
-    name: 'Little Joys',
-    type: 'Mini PhotoBook',
-    price: 1199,
-    originalPrice: 1399,
-    image: 'https://images.unsplash.com/photo-1596463059283-da257325bab8?auto=format&fit=crop&q=80',
-    colors: ['#E5E7EB', '#1F2937', '#047857', '#FFC0CB', '#F5F5DC'],
-    onSale: true
-  },
-  {
-    id: '3',
-    name: 'Timeless',
-    type: 'Medium Photobook',
-    price: 1499,
-    originalPrice: 1699,
-    image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80',
-    colors: ['#FFFFFF', '#1F2937', '#047857', '#E5E7EB', '#FFC0CB', '#F5F5DC'],
-    onSale: true
-  },
-  {
-    id: '4',
-    name: 'Timeless',
-    type: 'Large Photobook',
-    price: 1699,
-    originalPrice: 1899,
-    image: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&q=80',
-    colors: ['#FFFFFF', '#F5F5DC', '#1F2937'],
-    onSale: true
-  },
-  {
-    id: '5',
-    name: 'Little Joys',
-    type: 'Mini PhotoBook',
-    price: 1199,
-    originalPrice: 1399,
-    image: 'https://images.unsplash.com/photo-1472898965229-f9b06b9c9bbe?auto=format&fit=crop&q=80',
-    colors: ['#FFFFFF', '#1F2937', '#047857', '#E5E7EB', '#F5F5DC'],
-    onSale: true
-  }
+const products = [
+  { id: 'PA001', name: 'Reversed Dog', type: 'Original Painting', price: 1600, inStock: true, quantity: 1, featured: true },
+  { id: 'MP001', name: 'Just Keep Swimming', type: 'Mini Painting', price: 300, inStock: true, quantity: 1, featured: false },
+  { id: 'DI012', name: 'Van Gogh Diary', type: 'Diary', price: 390, inStock: true, quantity: 50, featured: false },
+  { id: 'BK001', name: 'Wooden Bookmark', type: 'Bookmark', price: 80, inStock: true, quantity: 28, featured: false },
+  { id: 'JW004', name: 'Necklace and Earrings Set', type: 'Jewellery', price: 1200, inStock: true, quantity: 2, featured: false },
 ];
 
-// Product card component to keep layout consistent
-const ProductCard = ({ product }: { product: Product }) => (
-  <div className="flex flex-col h-full">
-    <div className={`relative ${product.featured ? 'aspect-[3/4]' : 'aspect-square'} mb-4 bg-gray-100`}>
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <div className="flex flex-col flex-grow">
+const image = 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80';
+
+const ProductCard = ({ product }: { product: typeof products[0] }) => {
+  const waLink = `https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`;
+  return (
+    <div className="flex flex-col">
+      <div className="relative aspect-square mb-4 bg-gray-100 overflow-hidden rounded-xl">
+        <img src={image} alt={product.name} className="w-full h-full object-cover" />
+        <span className="absolute top-3 left-3 text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: '#59D5E0'}}>
+          {product.id}
+        </span>
+        {product.quantity <= 2 && (
+          <span className="absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: '#F4538A'}}>
+            Only {product.quantity} left!
+          </span>
+        )}
+      </div>
       <h3 className="text-lg font-medium">{product.name}</h3>
-      <p className="text-gray-600 mb-2">{product.type}</p>
-      <div className="flex items-center gap-2 mb-3">
-        <span className="font-medium">Rs. {product.price}</span>
-        <span className="text-gray-500 line-through">Rs. {product.originalPrice}</span>
-      </div>
-      <div className="flex gap-2 mb-2">
-        {product.colors.map((color, index) => (
-          <button
-            key={index}
-            className="w-6 h-6 rounded-full border border-gray-300"
-            style={{ backgroundColor: color }}
-            aria-label={`Color variant ${index + 1}`}
-          />
-        ))}
-      </div>
-      {product.onSale && (
-        <div className="mt-auto">
-          <span className="text-gray-700">SALE</span>
-        </div>
-      )}
+      <p className="text-gray-500 text-sm mb-1">{product.type}</p>
+      <p className="font-bold mb-3" style={{color: '#FAA300'}}>Rs. {product.price}</p>
+      <a href={waLink} target="_blank" rel="noopener noreferrer" className="py-2 rounded-full text-white text-sm font-medium text-center" style={{backgroundColor: '#25D366'}}>
+        Buy on WhatsApp
+      </a>
     </div>
-  </div>
-);
+  );
+};
 
 export function ProductGallery() {
-  const featuredProduct = products.find(p => p.featured);
-  const regularProducts = products.filter(p => !p.featured).slice(0, 4);
-
+  const featured = products.find(p => p.featured);
+  const rest = products.filter(p => !p.featured).slice(0, 4);
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-serif">
-          Keep-forever <em>photobooks</em>
-        </h2>
-        <a 
-          href="#" 
-          className="hidden md:inline-flex items-center text-gray-900 hover:text-gray-600"
-        >
-          Make it your own
-          <ChevronRight size={20} />
-        </a>
-      </div>
-
+      <h2 className="text-3xl md:text-4xl font-serif mb-8">Art that speaks to you</h2>
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Featured product on left (full width on mobile, half width on desktop) */}
-        {featuredProduct && (
+        {featured && (
           <div className="md:w-1/2">
-            <ProductCard product={featuredProduct} />
+            <ProductCard product={featured} />
           </div>
         )}
-
-        {/* 2x2 grid on right */}
-        <div className="md:w-1/2">
-          <div className="grid grid-cols-2 gap-4 h-full">
-            {regularProducts.map((product) => (
-              <div key={product.id} className="flex flex-col">
-                <ProductCard product={product} />
-              </div>
-            ))}
-          </div>
+        <div className="md:w-1/2 grid grid-cols-2 gap-4">
+          {rest.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </div>
-
-      <a 
-        href="#" 
-        className="md:hidden mt-8 inline-flex items-center text-gray-900 hover:text-gray-600"
-      >
-        Make it your own
-        <ChevronRight size={20} />
-      </a>
     </section>
   );
 }
