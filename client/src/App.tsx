@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import { CartProvider } from './context/CartContext';
 import TherapyPage from './components/TherapyPage';
 import AboutPage from './components/AboutPage';
+import OurJourney from './components/OurJourney';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/therapy" element={<TherapyPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/our-journey" element={<OurJourney />} />
         </Routes>
         <Footer/>
       </Router>

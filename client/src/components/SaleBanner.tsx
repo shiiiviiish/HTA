@@ -4,30 +4,25 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 export function SaleBanner() {
   const [saleIndex, setSaleIndex] = useState(0);
 
-  const saleMessages = [
-    "Art that heals — explore Kavya's original works!",
-    "Paintings, bookmarks and more — shop now!",
-    "Book a therapy session with Kavya Atray",
-    "Join our WhatsApp Community for latest updates!"
+  const messages = [
+    { text: "Art that heals — explore Kavya's original works!", link: "/" },
+    { text: "Paintings, bookmarks and more — shop now!", link: "/" },
+    { text: "Book a therapy session with Kavya Atray", link: "https://wa.me/919877591063" },
+    { text: "Join our WhatsApp Community!", link: "https://chat.whatsapp.com/D8qg0QhCRucCtESVUs9PTk" }
   ];
 
-  const nextSale = () => {
-    setSaleIndex((prev) => (prev + 1) % saleMessages.length);
-  };
-
-  const prevSale = () => {
-    setSaleIndex((prev) => (prev - 1 + saleMessages.length) % saleMessages.length);
-  };
+  const next = () => setSaleIndex((prev) => (prev + 1) % messages.length);
+  const prev = () => setSaleIndex((prev) => (prev - 1 + messages.length) % messages.length);
 
   return (
     <div style={{backgroundColor: '#F4538A'}} className="py-2 px-4 flex items-center justify-center relative">
-      <button onClick={prevSale} className="absolute left-4 text-white hover:opacity-75">
+      <button onClick={prev} className="absolute left-4 text-white">
         <ChevronLeft size={20} />
       </button>
-      <p className="text-center font-medium text-white">
-        {saleMessages[saleIndex]}
-      </p>
-      <button onClick={nextSale} className="absolute right-4 text-white hover:opacity-75">
+      <a href={messages[saleIndex].link} target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:underline text-center">
+        {messages[saleIndex].text}
+      </a>
+      <button onClick={next} className="absolute right-4 text-white">
         <ChevronRight size={20} />
       </button>
     </div>
