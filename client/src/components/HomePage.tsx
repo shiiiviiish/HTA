@@ -6,7 +6,6 @@ import { ProductGallery } from './ProductGallery';
 import CategoriesSection from './CategoriesSection';
 import GiftsSection from './GiftsSection';
 import CollaborationSection from './CollaborationSection';
-import FoundersThought from './FoundersThought';
 import TestimonialsSection from './TestimonialsSection';
 import CommunitySection from './CommunitySection';
 import Footer from './Footer';
@@ -38,9 +37,7 @@ const HomePage = () => {
         <CollaborationSection />
       </AnimateOnScroll>
 
-      <AnimateOnScroll animation="opacity-100 scale-100" delay={200}>
-        <FoundersThought />
-      </AnimateOnScroll>
+     
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={300}>
         <TestimonialsSection />

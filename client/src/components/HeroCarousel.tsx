@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import heroImage from '../assets/hero.jpeg';
 
 export function HeroCarousel() {
   return (
@@ -25,12 +26,13 @@ export function HeroCarousel() {
         </div>
 
         {/* Right Image */}
-        <div className="relative h-[300px] md:h-auto" style={{backgroundColor: '#59D5E0'}}>
-          <img 
-            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80"
-            alt="Beautiful artwork by Kavya Atray"
-            className="absolute inset-0 w-full h-full object-cover"
+        <div className="relative h-[500px] md:h-auto" style={{backgroundColor: '#59D5E0'}}>
+         <img 
+            src={heroImage}
+            alt="Kavya painting in her studio"
+           className="absolute inset-0 w-full h-full object-contain"
           />
+          
         </div>
       </div>
     </div>
