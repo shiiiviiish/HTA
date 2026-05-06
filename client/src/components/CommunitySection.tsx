@@ -11,7 +11,7 @@ const CommunitySection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif mb-6 text-white">Join Our Community</h2>
           <p className="text-white text-lg max-w-2xl mx-auto">
-            Follow Kavya on Instagram and be part of the happiness!
+           Become a part of our colorful world. Follow Kavya on Instagram for a touch of art and ease!
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
