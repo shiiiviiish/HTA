@@ -12,10 +12,10 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 'PA002', name: 'Krishan Ji!', type: 'Original Painting', price: 1200, inStock: true, quantity: 1 },
-  { id: 'TF003', name: 'The Faces We Keep', type: 'Women Series', price: 2500, inStock: true, quantity: 15 },
-  { id: 'ZA001', name: 'Zen Art Square', type: 'Art Print', price: 1500, inStock: true, quantity: 7 },
-  { id: 'CO002', name: 'Round Coasters', type: 'Set of 5', price: 950, inStock: true, quantity: 2 },
+  { id: '26PA002', name: 'Krishan Ji!', type: 'Original Painting', price: 1200, inStock: true, quantity: 1 },
+  { id: '26TF003', name: 'The Faces We Keep', type: 'Women Series', price: 2500, inStock: true, quantity: 15 },
+  { id: '26ZA001', name: 'Zen Art Square', type: 'Art Print', price: 1500, inStock: true, quantity: 7 },
+  { id: '26CO002', name: 'Round Coasters', type: 'Set of 5', price: 950, inStock: true, quantity: 2 },
 ];
 
 const image = 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80';
