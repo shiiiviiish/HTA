@@ -51,7 +51,7 @@ const OurJourney = () => {
             <div
               key={ex.id}
               onClick={() => navigate('/exhibition/' + ex.id)}
-              className="rounded-2xl h-72 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
+              className="rounded-2xl h-96 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
               style={{ backgroundColor: ex.color }}
             >
               {ex.photo && (

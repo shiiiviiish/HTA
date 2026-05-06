@@ -16,7 +16,7 @@ const Footer = () => {
                 Happiness Through Art
               </h2>
             </div>
-            <p className="text-gray-600 mb-2">Art that heals. Joy that lasts.</p>
+            <p className="text-gray-600 mb-2">Unleash Your Inner Light: From the Heart to the Canvas.</p>
             <p className="text-gray-500 text-sm">By Kavya Atray — Artist & Therapist</p>
           </div>
 
