@@ -9,6 +9,9 @@
 
 body {
   font-family: var(--font-sans);
+  background-color: white;
+  color: #111111;
+  color-scheme: light;
 }
 
 h1, h2, h3, h4, .font-serif {
