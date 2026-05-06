@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
-// Define the Product interface properly
 interface Product {
   id: string;
   name: string;
@@ -21,7 +21,26 @@ const products: Product[] = [
 const image = 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80';
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const waLink = `https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`;
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      type: product.type,
+      price: product.price,
+      image: image,
+      color: { name: 'Default', hex: '#000000' },
+      quantity: 1,
+      size: 'Standard'
+    });
+    alert(`${product.name} added to cart!`);
+  };
+
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`, '_blank');
+  };
+
   return (
     <div className="flex flex-col">
       <Link to={`/product/${product.id}`}>
@@ -38,19 +57,24 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
         <h3 className="text-lg font-medium text-center">{product.name}</h3>
         <p className="text-gray-500 text-sm text-center mb-1">{product.type}</p>
-        <p className="font-bold text-center mb-3" style={{color: '#FAA300'}}>
-          Rs. {product.price}
-        </p>
+        <p className="font-bold text-center mb-3" style={{color: '#FAA300'}}>Rs. {product.price}</p>
       </Link>
-      <a 
-        href={waLink} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="py-2 rounded-full text-white text-sm font-medium text-center" 
-        style={{backgroundColor: '#25D366'}}
-      >
-        Buy on WhatsApp
-      </a>
+      <div className="flex flex-col gap-2">
+        <button
+          onClick={handleAddToCart}
+          className="py-2 rounded-full text-white text-sm font-medium text-center"
+          style={{backgroundColor: '#FAA300'}}
+        >
+          Add to Cart
+        </button>
+        <button
+          onClick={openWhatsApp}
+          className="py-2 rounded-full text-white text-sm font-medium text-center"
+          style={{backgroundColor: '#25D366'}}
+        >
+          Buy on WhatsApp
+        </button>
+      </div>
     </div>
   );
 };

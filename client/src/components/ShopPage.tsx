@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useCart } from '../context/CartContext';
 
-// Define Product interface for TypeScript
 interface Product {
   id: string;
   name: string;
@@ -50,29 +50,48 @@ const image = 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto
 
 const ShopPage: React.FC = () => {
   const [selected, setSelected] = useState('All');
+  const { addToCart } = useCart();
 
   const filtered = selected === 'All' ? allProducts : allProducts.filter(p => p.category === selected);
+
+  const handleAddToCart = (product: Product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      type: product.category,
+      price: product.price,
+      image: image,
+      color: { name: 'Default', hex: '#000000' },
+      quantity: 1,
+      size: 'Standard'
+    });
+    alert(`${product.name} added to cart!`);
+  };
+
+  const openWhatsApp = (product: Product) => {
+    window.open(`https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-white">
       <div className="py-16 px-6 text-center" style={{backgroundColor: '#F5DD61'}}>
-        <h1 className="text-5xl md:text-6xl font-serif mb-4 drop-shadow-lg">🖼️ Shop All</h1>
-        <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto">
-          Handcrafted with ❤️ by Kavya Atray
+        <h1 className="text-5xl font-serif mb-4">Shop All</h1>
+        <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          Handcrafted with love by Kavya Atray
         </p>
       </div>
 
       <div className="py-8 px-4">
-        <div className="flex gap-3 justify-center flex-wrap max-w-6xl mx-auto px-4">
+        <div className="flex gap-3 justify-center flex-wrap max-w-6xl mx-auto">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setSelected(cat)}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-md ${
-                selected === cat 
-                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-pink-500/25' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className="px-4 py-2 rounded-full text-sm font-medium transition-all"
+              style={{
+                backgroundColor: selected === cat ? '#F4538A' : '#f3f4f6',
+                color: selected === cat ? 'white' : '#374151'
+              }}
             >
               {cat}
             </button>
@@ -80,91 +99,59 @@ const ShopPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-4 py-12 max-w-7xl mx-auto">
-        <p className="text-gray-500 text-sm md:text-base mb-8 text-center">
-          Showing <span className="font-semibold text-gray-900">{filtered.length}</span> products
-        </p>
-        
-        {filtered.length === 0 ? (
-          <div className="text-center py-20">
-            <div className="text-6xl mb-4">😢</div>
-            <h3 className="text-2xl font-semibold mb-2">No products found</h3>
-            <p className="text-gray-500 mb-6">Try selecting a different category</p>
-            <button
-              onClick={() => setSelected('All')}
-              className="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-semibold hover:shadow-lg transition-all"
-            >
-              Show All Products
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {filtered.map(product => {
-              const waLink = `https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`;
-              const isLowStock = product.quantity <= 2 && product.quantity > 0;
-              const isOutOfStock = product.quantity === 0;
-              
-              return (
-                <div key={product.id} className="group flex flex-col bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-pink-200">
-                  <div className="relative aspect-square mb-4 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden rounded-xl group-hover:scale-105 transition-transform duration-300">
-                    <img 
-                      src={image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300" 
-                    />
-                    <span className="absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full text-white shadow-lg" 
-                          style={{backgroundColor: '#59D5E0'}}>
-                      {product.id}
+      <div className="px-4 py-8 max-w-7xl mx-auto">
+        <p className="text-gray-500 text-sm mb-6 text-center">{filtered.length} products</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filtered.map(product => {
+            const isLow = product.quantity <= 2;
+            const isOut = product.quantity === 0;
+            return (
+              <div key={product.id} className="flex flex-col bg-white rounded-2xl p-4 shadow-sm border">
+                <div className="relative aspect-square mb-3 bg-gray-100 overflow-hidden rounded-xl">
+                  <img src={image} alt={product.name} className="w-full h-full object-cover" />
+                  <span className="absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: '#59D5E0'}}>
+                    {product.id}
+                  </span>
+                  {isLow && !isOut && (
+                    <span className="absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: '#F4538A'}}>
+                      Only {product.quantity} left!
                     </span>
-                    
-                    {isLowStock && (
-                      <span className="absolute top-3 right-3 text-xs font-bold px-3 py-1 rounded-full text-white shadow-lg animate-pulse" 
-                            style={{backgroundColor: '#F4538A'}}>
-                        Only {product.quantity} left!
-                      </span>
-                    )}
-                    
-                    {isOutOfStock && (
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent flex items-center justify-center rounded-xl">
-                        <span className="text-white font-bold text-lg bg-black/50 px-4 py-2 rounded-full">Sold Out</span>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className="flex-1">
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{product.category}</p>
-                    <h3 className="font-semibold text-gray-900 text-sm md:text-base mb-3 line-clamp-2 leading-tight">
-                      {product.name}
-                    </h3>
-                    <p className="text-2xl font-bold mb-4" style={{color: '#FAA300'}}>
-                      ₹{product.price.toLocaleString()}
-                    </p>
-                  </div>
-                  
-                  {!isOutOfStock ? (
-                    <a
-                      href={waLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-3 px-4 rounded-xl text-white text-sm font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-2"
-                      style={{backgroundColor: '#25D366'}}
-                    >
-                      <span>🛒</span>
-                      Buy on WhatsApp
-                    </a>
-                  ) : (
-                    <button 
-                      disabled
-                      className="py-3 px-4 rounded-xl text-white text-sm font-semibold bg-gray-400 cursor-not-allowed shadow-lg"
-                    >
-                      Sold Out
-                    </button>
+                  )}
+                  {isOut && (
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-xl">
+                      <span className="text-white font-bold">Out of Stock</span>
+                    </div>
                   )}
                 </div>
-              );
-            })}
-          </div>
-        )}
+                <p className="text-xs text-gray-400 mb-1">{product.category}</p>
+                <h3 className="font-medium text-sm mb-1">{product.name}</h3>
+                <p className="font-bold mb-3" style={{color: '#FAA300'}}>Rs. {product.price}</p>
+                {!isOut ? (
+                  <div className="flex flex-col gap-2">
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="py-2 rounded-full text-white text-xs font-medium"
+                      style={{backgroundColor: '#FAA300'}}
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => openWhatsApp(product)}
+                      className="py-2 rounded-full text-white text-xs font-medium"
+                      style={{backgroundColor: '#25D366'}}
+                    >
+                      Buy on WhatsApp
+                    </button>
+                  </div>
+                ) : (
+                  <button className="py-2 rounded-full text-white text-xs font-medium bg-gray-400">
+                    Out of Stock
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

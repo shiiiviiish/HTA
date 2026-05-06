@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
 const products = [
   { id: '26PA001', name: 'Reversed Dog', type: 'Original Painting', price: 1600, inStock: true, quantity: 1, featured: true },
@@ -11,7 +12,26 @@ const products = [
 const image = 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80';
 
 const ProductCard = ({ product }: { product: typeof products[0] }) => {
-  const waLink = `https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`;
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      type: product.type,
+      price: product.price,
+      image: image,
+      color: { name: 'Default', hex: '#000000' },
+      quantity: 1,
+      size: 'Standard'
+    });
+    alert(`${product.name} added to cart!`);
+  };
+
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`, '_blank');
+  };
+
   return (
     <div className="flex flex-col">
       <div className="relative aspect-square mb-4 bg-gray-100 overflow-hidden rounded-xl">
@@ -28,9 +48,22 @@ const ProductCard = ({ product }: { product: typeof products[0] }) => {
       <h3 className="text-lg font-medium">{product.name}</h3>
       <p className="text-gray-500 text-sm mb-1">{product.type}</p>
       <p className="font-bold mb-3" style={{color: '#FAA300'}}>Rs. {product.price}</p>
-      <a href={waLink} target="_blank" rel="noopener noreferrer" className="py-2 rounded-full text-white text-sm font-medium text-center" style={{backgroundColor: '#25D366'}}>
-        Buy on WhatsApp
-      </a>
+      <div className="flex flex-col gap-2">
+        <button
+          onClick={handleAddToCart}
+          className="py-2 rounded-full text-white text-sm font-medium text-center"
+          style={{backgroundColor: '#FAA300'}}
+        >
+          Add to Cart
+        </button>
+        <button
+          onClick={openWhatsApp}
+          className="py-2 rounded-full text-white text-sm font-medium text-center"
+          style={{backgroundColor: '#25D366'}}
+        >
+          Buy on WhatsApp
+        </button>
+      </div>
     </div>
   );
 };
