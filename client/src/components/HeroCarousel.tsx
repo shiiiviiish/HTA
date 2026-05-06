@@ -30,7 +30,7 @@ export function HeroCarousel() {
          <img 
             src={heroImage}
             alt="Kavya painting in her studio"
-           className="absolute inset-0 w-full h-full object-contain"
+           className="absolute inset-0 w-full h-full object-cover"
           />
           
         </div>
