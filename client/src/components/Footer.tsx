@@ -12,12 +12,13 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Heart className="w-8 h-8 fill-current" style={{color: '#F4538A'}} />
-              <h2 className="text-2xl font-bold" style={{fontFamily: "'Dancing Script', cursive"}}>
+              <h2 className="text-2xl font-lobster" style={{fontFamily: "'Dancing Script', cursive"}}>
                 Happiness Through Art
               </h2>
             </div>
             <p className="text-gray-600 mb-2">Unleash Your Inner Light: From the Heart to the Canvas.</p>
-            <p className="text-gray-500 text-sm">By Kavya Atray — Artist & Therapist</p>
+            <p className="text-gray-500 text-sm">Founder – Happiness Through Art<br/>
+An artist from CHANDIGARH</p>
           </div>
 
           <div>
