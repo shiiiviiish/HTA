@@ -56,13 +56,7 @@ const ProductCard = ({ product }: { product: typeof products[0] }) => {
         >
           Add to Cart
         </button>
-        <button
-          onClick={openWhatsApp}
-          className="py-2 rounded-full text-white text-sm font-medium text-center"
-          style={{backgroundColor: '#25D366'}}
-        >
-          Buy on WhatsApp
-        </button>
+       
       </div>
     </div>
   );

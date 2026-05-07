@@ -132,12 +132,7 @@ const handleAddToCart = () => {
               Add to Cart
             </button>
 
-            <button
-              onClick={handleWhatsAppOrder}
-              className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700"
-            >
-              Order via WhatsApp
-            </button>
+            
           </div>
 
           {/* Description */}

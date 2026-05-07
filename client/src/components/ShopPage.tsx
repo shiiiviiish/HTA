@@ -135,13 +135,7 @@ const ShopPage: React.FC = () => {
                     >
                       Add to Cart
                     </button>
-                    <button
-                      onClick={() => openWhatsApp(product)}
-                      className="py-2 rounded-full text-white text-xs font-medium"
-                      style={{backgroundColor: '#25D366'}}
-                    >
-                      Buy on WhatsApp
-                    </button>
+                    
                   </div>
                 ) : (
                   <button className="py-2 rounded-full text-white text-xs font-medium bg-gray-400">
