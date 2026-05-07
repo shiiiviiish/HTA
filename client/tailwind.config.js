@@ -7,6 +7,7 @@ export default {
         sans: ['var(--font-sans)'],
         serif: ['var(--font-serif)'],
         cursive: ['var(--font-cursive)'],
+        lobster: ['Lobster', 'cursive'],
       },
       animation: {
         'slide-up': 'slideUp 0.3s ease-out forwards',

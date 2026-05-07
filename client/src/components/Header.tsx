@@ -38,12 +38,9 @@ export function Header() {
           {/* Logo - Updated with cursive font */}
           <div className="order-1 md:order-2 text-center">
             <Link to="/">
-              <h1 className="text-2xl md:text-3xl font-bold" style={{ 
-                fontFamily: "'Dancing Script', cursive", 
-                fontWeight: 700 
-              }}>
-                Happiness through art
-              </h1>
+              <h1 className="text-2xl md:text-3xl font-lobster">
+  Happiness Through Art 🎨
+</h1>
             </Link>
           </div>
 
