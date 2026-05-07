@@ -11,9 +11,9 @@ export function HeroCarousel() {
           <p className="text-sm font-medium uppercase tracking-widest mb-3" style={{color: '#FAA300'}}>
             By Kavya Atray
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6">
-            Art that brings<br />happiness
-          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-shrikhand mb-6">
+  Every stroke is a Heartbeat of Joy.❤️
+</h2>
           <p className="text-lg mb-8 max-w-lg">
             Explore original paintings, handcrafted bookmarks, art prints 
             and more — each piece created with love and intention. 
