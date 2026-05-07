@@ -12,6 +12,7 @@ import Footer from './Footer';
 import ProductRow from './ProductRow';
 import AnimateOnScroll from './AnimateOnScroll';
 
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">

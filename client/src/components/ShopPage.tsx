@@ -69,7 +69,7 @@ const ShopPage: React.FC = () => {
   };
 
   const openWhatsApp = (product: Product) => {
-    window.open(`https://wa.me/919877591063?text=Hi Kavya! I want to order: ${product.name} (${product.id}) Price: Rs.${product.price}`, '_blank');
+    window.open(`https://wa.me/919877591063?text=Omg Kavvyaaa! I am obsessed with your shop and need to order ${product.name} (${product.id}) right now!`, '_blank');
   };
 
   return (

@@ -103,7 +103,7 @@ const TherapyPage = () => {
           Take the first step towards healing. Reach out to Kavya today and book your first session.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/919877591063" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-white font-medium" style={{backgroundColor: '#25D366'}}>
+          <a href="https://wa.me/919877591063?text=Kavvyaaaa! Lets make some art magic happen. I would love to book a session!" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-white font-medium" style={{backgroundColor: '#25D366'}}>
             WhatsApp Kavya
           </a>
           <a href="mailto:kavya@happinessthroughart.com" className="px-8 py-3 rounded-full font-medium border-2 border-black">

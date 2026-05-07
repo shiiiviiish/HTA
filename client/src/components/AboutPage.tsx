@@ -61,7 +61,7 @@ const AboutPage = () => {
       <div className="py-16 px-6 text-center" style={{backgroundColor: '#F5DD61'}}>
         <h2 className="text-3xl font-serif mb-4">Want to connect?</h2>
         <p className="text-gray-600 mb-8">Reach out for art commissions, therapy sessions or just to say hi!</p>
-        <a href="https://wa.me/919877591063" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-white font-medium" style={{backgroundColor: '#FAA300'}}>
+        <a href="https://wa.me/919877591063?text=Heyyyyyyy! I just finished reading your story and would love to connect with you! 💛✨" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-white font-medium" style={{backgroundColor: '#FAA300'}}>
           Say Hello
         </a>
       </div>

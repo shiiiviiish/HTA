@@ -75,7 +75,7 @@ const OurJourney = () => {
           Stay updated with new artwork, workshops, therapy sessions and events.
         </p>
         
-          <a href="https://chat.whatsapp.com/D8qg0QhCRucCtESVUs9PTk"
+          <a href="https://wa.me/919877591063?text=Hey Kavya! I'm here for the art, but I'm staying for the journey. How did all this magic happen? 🎨✨"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 rounded-full font-medium text-white"

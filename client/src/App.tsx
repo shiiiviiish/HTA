@@ -17,6 +17,7 @@ import ShopPage from './components/ShopPage';
 import ContactPage from './components/ContactPage';
 import ExhibitionPage from './components/ExhibitionPage';
 
+
 function App() {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -54,6 +55,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/our-journey" element={<OurJourney />} />
               <Route path="/exhibition/:id" element={<ExhibitionPage />} />
+              
               <Route path="*" element={
                 <div className="min-h-screen flex items-center justify-center" style={{backgroundColor: '#F5DD61'}}>
                   <div className="text-center p-8 max-w-md mx-auto">
