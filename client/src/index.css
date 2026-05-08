@@ -69,15 +69,6 @@ h1, h2, h3, h4, .font-serif {
   animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-.float-bounce {
-  animation: bounce 2s infinite;
-}
-
 @keyframes roam {
   0% { transform: translate(0px, 0px); }
   25% { transform: translate(-20px, -30px); }
@@ -88,4 +79,31 @@ h1, h2, h3, h4, .font-serif {
 
 .roam-button {
   animation: roam 4s infinite ease-in-out;
+}
+
+.kavya-video-container {
+  height: 420px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.kavya-video-container iframe {
+  width: 100% !important;
+  height: 520px !important;
+  margin-top: -55px;
+}
+
+.insta-hide {
+  overflow: hidden;
+  border-radius: 16px;
+  height: 100%;
+  position: relative;
+}
+
+.insta-hide iframe {
+  width: 100% !important;
+  height: 140% !important;
+  margin-top: -60px;
+  margin-bottom: -100px;
+  border-radius: 16px;
 }
