@@ -11,6 +11,7 @@ import CommunitySection from './CommunitySection';
 import Footer from './Footer';
 import ProductRow from './ProductRow';
 import AnimateOnScroll from './AnimateOnScroll';
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => {
@@ -19,7 +20,10 @@ const HomePage = () => {
       <HeroCarousel />
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={100}>
-        <ProductGallery />
+        <Link to="/gifts" className="block w-full py-4 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all" style={{ backgroundColor: '#F4538A' }}>
+  💛 If Kavya could gift you anything... — See her top picks!
+      </Link>
+       <ProductGallery />
       </AnimateOnScroll>
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={200}>
@@ -45,7 +49,7 @@ const HomePage = () => {
       </AnimateOnScroll>
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={400}>
-        <CommunitySection />
+        <GiftsSection /><CommunitySection />
       </AnimateOnScroll>
     </div>
   );

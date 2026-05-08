@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const navItems = [
-  { label: 'New In', path: '/shop' },
-  { label: 'Paintings', path: '/' },
-  { label: 'Bookmarks', path: '/' },
-  { label: 'Art Prints', path: '/' },
-  { label: 'Gifts', path: '/' },
-  { label: 'Therapy', path: '/therapy' },
-  { label: 'Shop', path: '/shop' },
-  { label: 'Our Journey', path: '/our-journey' },
-  { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
-  
+interface NavItem {
+  label: string;
+  path: string;
+  dropdown: { label: string; path: string }[];
+}
+
+const navItems: NavItem[] = [
+  { label: 'Home', path: '/', dropdown: [] },
+  { label: 'Art', path: '/art', dropdown: [] },
+  { label: 'Stationery', path: '/stationery', dropdown: [] },
+  { label: 'Gifts', path: '/gifts', dropdown: [] },
+  { label: 'Decor', path: '/decor', dropdown: [] },
+  { label: 'Therapy', path: '/therapy', dropdown: [] },
+  { label: 'Shop', path: '/shop', dropdown: [] },
+  { label: 'Our Journey', path: '/our-journey', dropdown: [] },
+  { label: 'About', path: '/about', dropdown: [] },
+  { label: 'Contact', path: '/contact', dropdown: [] },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobile, setOpenMobile] = useState<string | null>(null);
 
   return (
     <>
@@ -34,16 +41,43 @@ export function Navigation() {
         md:hidden
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="pt-24 px-4">
+        <div className="pt-24 px-4 overflow-y-auto h-full pb-8">
           {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.path}
-              className="block text-gray-800 hover:text-gray-600 font-medium py-3 border-b border-gray-100"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </Link>
+            <div key={item.label}>
+              {item.dropdown && item.dropdown.length > 0 ? (
+                <>
+                  <button
+                    onClick={() => setOpenMobile(openMobile === item.label ? null : item.label)}
+                    className="w-full flex justify-between items-center text-gray-800 font-medium py-3 border-b border-gray-100"
+                  >
+                    {item.label}
+                    <ChevronDown size={16} className={`transition-transform ${openMobile === item.label ? 'rotate-180' : ''}`} />
+                  </button>
+                  {openMobile === item.label && (
+                    <div className="pl-4 bg-gray-50">
+                      {item.dropdown.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          to={sub.path}
+                          className="block text-gray-600 py-2 text-sm border-b border-gray-100"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  to={item.path || '/'}
+                  className="block text-gray-800 hover:text-gray-600 font-medium py-3 border-b border-gray-100"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </nav>
@@ -51,14 +85,34 @@ export function Navigation() {
       <nav className="border-t border-b border-gray-200 py-3 hidden md:block">
         <ul className="flex justify-center space-x-8">
           {navItems.map((item) => (
-            <li key={item.label}>
+            <li
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => item.dropdown && item.dropdown.length > 0 && setOpenDropdown(item.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <Link
-                to={item.path}
-                className="relative text-gray-800 font-medium hover:text-black transition-colors group"
+                to={item.path || '/'}
+                className="relative text-gray-800 font-medium hover:text-black transition-colors flex items-center gap-1"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                {item.dropdown && item.dropdown.length > 0 && <ChevronDown size={14} />}
               </Link>
+
+              {item.dropdown && item.dropdown.length > 0 && openDropdown === item.label && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-xl rounded-xl py-2 z-50 border border-gray-100">
+                  {item.dropdown.map((sub) => (
+                    <Link
+                      key={sub.label}
+                      to={sub.path}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                      onClick={() => setOpenDropdown(null)}
+                    >
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>

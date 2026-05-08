@@ -1,10 +1,12 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight} from 'lucide-react';
 import heroImage from '../assets/hero.jpeg';
+import { Link } from 'react-router-dom';
 
-export function HeroCarousel() {
-  return (
+export function HeroCarousel() { 
+return ( 
     <div className="relative overflow-hidden">
+      
       <div className="grid md:grid-cols-2">
         {/* Left Content */}
         <div className="px-6 md:px-12 lg:px-24 py-16 md:py-24 flex flex-col justify-center" style={{backgroundColor: '#F5DD61'}}>
