@@ -11,7 +11,7 @@ const CommunitySection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif mb-6 text-white">Join Our Community</h2>
           <p className="text-white text-lg max-w-2xl mx-auto">
-           Become a part of our colorful world. Follow Kavya on Instagram for a touch of art and ease!
+            Become a part of our colorful world. Follow Kavya on Instagram for a touch of art and ease!
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
@@ -37,7 +37,7 @@ const CommunitySection = () => {
           </div>
           <div className="instagram-container w-full max-w-sm">
             <iframe
-              src="https://www.instagram.com/reel/DXzeFYjPZJB/embed"
+              src="https://www.instagram.com/reel/DYEM_lshiDs/embed"
               width="100%"
               height="480"
               frameBorder="0"
@@ -56,4 +56,4 @@ const CommunitySection = () => {
   );
 };
 
-export default CommunitySection;  
+export default CommunitySection;
