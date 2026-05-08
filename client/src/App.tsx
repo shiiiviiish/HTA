@@ -20,6 +20,7 @@ import ArtPage from './components/ArtPage';
 import StationeryPage from './components/StationeryPage';
 import DecorPage from './components/DecorPage';
 import GiftsPage from './components/GiftsPage';
+import KavyaMessage from './components/KavyaMessage';
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
@@ -83,10 +84,12 @@ function App() {
                   </div>
                 </div>
               } />
+            
             </Routes>
           </main>
           <Footer />
         </div>
+        <KavyaMessage />
 
         {showScroll && (
           <button
