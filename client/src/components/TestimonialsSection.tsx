@@ -11,10 +11,10 @@ const testimonials = [
     color: '#F5DD61'
   },
   {
-    name: "Ananya Mehta",
+    name: "Ayush Burman",
     rating: 5,
-    title: "Therapy sessions changed my life",
-    review: "I was skeptical at first but Kavya's therapy sessions have been truly life changing. She creates such a safe and warm space. Highly recommend!",
+    title: "Absolutely beautiful artwork! It completely changed the energy of my room!.",
+    review: "The art piece you gave me, with a diya glowing before it, feels like the most spiritual combination I have ever encountered!.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80",
     color: '#59D5E0'
   },
@@ -45,7 +45,7 @@ const testimonials = [
   {
     name: "Meera Joshi",
     rating: 5,
-    title: "Art therapy was transformative",
+    title: "A beautiful space where you can just be yourself without any judgment",
     review: "I attended one of Kavya's art therapy workshops and it was one of the most healing experiences of my life. Truly gifted at what she does!",
     image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80",
     color: '#59D5E0'
@@ -54,7 +54,7 @@ const testimonials = [
     name: "Aisha Khan",
     rating: 5,
     title: "Postcards made my day!",
-    review: "The postcards are so witty and beautifully designed. I bought the whole set and sent them to all my friends. Everyone loved them!",
+     review: "Yes! Your art pieces are an Art Therapy! A beautiful mind making the world a happier place, one artwork at a time!",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80",
     color: '#F5DD61'
   },
