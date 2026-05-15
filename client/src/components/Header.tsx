@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, User, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -10,6 +10,9 @@ import Cart from './Cart';
 
 export function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const [isSpinning, setIsSpinning] = useState(false);
+
   const { totalItems } = useCart();
 
   const toggleCart = () => {
@@ -38,9 +41,17 @@ export function Header() {
           {/* Logo - Updated with cursive font */}
           <div className="order-1 md:order-2 text-center">
             <Link to="/">
-              <h1 className="text-2xl md:text-3xl" style={{fontFamily: "'MoglanDemo', serif"}}>
-  Happiness Through Art 🎨
-</h1>
+             <div className="flex items-center gap-3 justify-center">
+  <img
+    src="/images/HTAlogo.png"
+    alt="HTA Logo"
+    className="w-10 h-10 rounded-full logo-spin"
+    style={{transition: 'all 0.3s'}}
+  />
+  <h1 className="text-2xl md:text-3xl" style={{fontFamily: "'MoglanDemo', serif"}}>
+    Happiness Through Art
+  </h1>
+</div>
             </Link>
           </div>
 

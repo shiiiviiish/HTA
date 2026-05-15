@@ -114,3 +114,19 @@ h1, h2, h3, h4, .font-serif {
   margin-bottom: -100px;
   border-radius: 16px;
 }
+
+@keyframes slowspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-spin:hover {
+  animation: slowspin 2s linear infinite;
+}
+
+@keyframes slowspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
