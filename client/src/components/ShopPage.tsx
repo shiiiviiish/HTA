@@ -64,7 +64,12 @@ const image = 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto
 
 const ShopPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const [selected, setSelected] = useState(searchParams.get('category') || 'All');
+const urlCategory = searchParams.get('category') || 'All';
+const [selected, setSelected] = useState(urlCategory);
+
+React.useEffect(() => {
+  setSelected(urlCategory);
+}, [urlCategory]);
   const { addToCart } = useCart();
 
   const filtered = selected === 'All' ? allProducts : allProducts.filter(p => p.category === selected);

@@ -6,8 +6,8 @@ const AboutPage = () => {
     <div className="min-h-screen bg-white">
 
       <div className="py-20 px-6 text-center" style={{backgroundColor: '#F5DD61'}}>
-        <h1 className="text-5xl font-serif mb-4">About Kavya</h1>
-        <p className="text-lg text-gray-700">Artist. Therapist. Creator of happiness.</p>
+        <h1 className="text-5xl mb-4" style={{fontFamily: "'MoglanDemo', serif", color: '#5C3317'}}>About Kavya</h1><p className="text-lg text-gray-700">Artist. Therapist. Creator of happiness.</p>
+        
       </div>
 
       <div className="py-16 px-6 max-w-4xl mx-auto">

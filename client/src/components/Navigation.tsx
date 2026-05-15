@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 interface NavItem {
   label: string;
   path: string;
-  dropdown: { label: string; path: string }[];
+  dropdown: { label: string; path: string; external?: boolean }[];
 }
 
 const navItems: NavItem[] = [
@@ -13,42 +13,38 @@ const navItems: NavItem[] = [
   {
     label: 'Art', path: '/shop', dropdown: [
       { label: 'Art Originals', path: '/shop?category=Art Originals' },
-{ label: 'Art Prints', path: '/shop?category=Art Prints' },
+      { label: 'Art Prints', path: '/shop?category=Art Prints' },
     ]
   },
   {
     label: 'Stationery', path: '/shop', dropdown: [
-      { label: 'Diaries', path: '/shop?category=Diaries' },
-      { label: 'Bookmarks', path: '/shop?category=Bookmarks' },
-      { label: 'Postcards', path: '/shop?category=Postcards' },
-      
+      { label: 'Diaries', path: '/shop?category=Stationery' },
+      { label: 'Bookmarks', path: '/shop?category=Stationery' },
+      { label: 'Postcards', path: '/shop?category=Stationery' },
     ]
   },
   {
     label: 'Gifts', path: '/shop', dropdown: [
-      { label: 'Kavya\'s Top Picks', path: '/shop?category=Kavya\'s+Top+Picks' },
-      { label: 'Gift Sets', path: '/shop?category=Gift+Sets' },
-      { label: 'Custom Orders', path: '/contact' },
+      { label: 'Kavyas Top Picks', path: '/kavya-picks' },
+      { label: 'Custom Orders', path: 'https://wa.me/919877591063?text=Hey Kavya! I would love to place a custom order. Can you help me create something special?', external: true },
     ]
   },
   {
     label: 'Decor', path: '/shop', dropdown: [
-      { label: 'Coasters', path: '/shop?category=Coasters' },
-      { label: 'Decoupage', path: '/shop?category=Decoupage' },
+      { label: 'Coasters', path: '/shop?category=Decor' },
+      { label: 'Decoupage', path: '/shop?category=Decor' },
       { label: 'Jewellery', path: '/shop?category=Jewellery' },
     ]
   },
-  
-{
-  label: 'Shop', path: '/shop', dropdown: [
-    { label: 'All Products', path: '/shop' },
-    { label: 'New In', path: '/shop' },
-    { label: 'Paintings', path: '/shop?category=Paintings' },
-    { label: 'Stationery', path: '/shop?category=Stationery' },
-    { label: 'Decor', path: '/shop?category=Decor' },
-    { label: 'Jewellery', path: '/shop?category=Jewellery' },
-  ]
-},
+  {
+    label: 'Shop', path: '/shop', dropdown: [
+      { label: 'All Products', path: '/shop' },
+      { label: 'Art Originals', path: '/shop?category=Art Originals' },
+      { label: 'Stationery', path: '/shop?category=Stationery' },
+      { label: 'Decor', path: '/shop?category=Decor' },
+      { label: 'Jewellery', path: '/shop?category=Jewellery' },
+    ]
+  },
   { label: 'Our Journey', path: '/our-journey', dropdown: [] },
   { label: 'About', path: '/about', dropdown: [] },
   { label: 'Contact', path: '/contact', dropdown: [] },
@@ -89,14 +85,24 @@ export function Navigation() {
                   {openMobile === item.label && (
                     <div className="pl-4 bg-gray-50">
                       {item.dropdown.map((sub) => (
-                        <Link
-                          key={sub.label}
-                          to={sub.path}
-                          className="block text-gray-600 py-2 text-sm border-b border-gray-100"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
+                        sub.external ? (
+                          <button
+                            key={sub.label}
+                            onClick={() => { window.open(sub.path, '_blank'); setIsOpen(false); }}
+                            className="block w-full text-left text-gray-600 py-2 text-sm border-b border-gray-100"
+                          >
+                            {sub.label}
+                          </button>
+                        ) : (
+                          <Link
+                            key={sub.label}
+                            to={sub.path}
+                            className="block text-gray-600 py-2 text-sm border-b border-gray-100"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {sub.label}
+                          </Link>
+                        )
                       ))}
                     </div>
                   )}
@@ -119,11 +125,11 @@ export function Navigation() {
         <ul className="flex justify-center space-x-6">
           {navItems.map((item) => (
             <li
-  key={item.label}
-  className="relative"
-  onMouseEnter={() => setOpenDropdown(item.label)}
-  onMouseLeave={() => setOpenDropdown(null)}
->
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => setOpenDropdown(item.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <Link
                 to={item.path || '/'}
                 className="relative text-gray-800 font-medium hover:text-black transition-colors flex items-center gap-1 group"
@@ -136,19 +142,32 @@ export function Navigation() {
               </Link>
 
               {item.dropdown && item.dropdown.length > 0 && openDropdown === item.label && (
-                <div className="absolute top-full left-0 w-52 z-50 bg-white shadow-xl rounded-xl py-2 border border-gray-100" style={{marginTop: '0px', top: '100%'}}>
+                <div className="absolute top-full left-0 w-52 z-50 bg-white shadow-xl rounded-xl py-2 border border-gray-100">
                   {item.dropdown.map((sub) => (
-                    <Link
-                      key={sub.label}
-                      to={sub.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:text-black transition-colors"
-                      style={{borderLeft: '3px solid transparent'}}
-                      onMouseEnter={(e) => (e.currentTarget.style.borderLeftColor = '#FF6B35')}
-                      onMouseLeave={(e) => (e.currentTarget.style.borderLeftColor = 'transparent')}
-                      onClick={() => setOpenDropdown(null)}
-                    >
-                      {sub.label}
-                    </Link>
+                    sub.external ? (
+                      <button
+                        key={sub.label}
+                        onClick={() => { window.open(sub.path, '_blank'); setOpenDropdown(null); }}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-black transition-colors"
+                        style={{borderLeft: '3px solid transparent'}}
+                        onMouseEnter={(e) => (e.currentTarget.style.borderLeftColor = '#FF6B35')}
+                        onMouseLeave={(e) => (e.currentTarget.style.borderLeftColor = 'transparent')}
+                      >
+                        {sub.label}
+                      </button>
+                    ) : (
+                      <Link
+                        key={sub.label}
+                        to={sub.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:text-black transition-colors"
+                        style={{borderLeft: '3px solid transparent'}}
+                        onMouseEnter={(e) => (e.currentTarget.style.borderLeftColor = '#FF6B35')}
+                        onMouseLeave={(e) => (e.currentTarget.style.borderLeftColor = 'transparent')}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {sub.label}
+                      </Link>
+                    )
                   ))}
                 </div>
               )}

@@ -25,6 +25,7 @@ import FAQPage from './components/FAQPage';
 import TermsPage from './components/TermsPage';
 import RefundPage from './components/RefundPage';
 
+
 function App() {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -69,6 +70,7 @@ function App() {
               <Route path="/faq" element={<FAQPage />} />
 <Route path="/terms" element={<TermsPage />} />
 <Route path="/refund" element={<RefundPage />} />
+<Route path="/kavya-picks" element={<GiftsPage />} />
               <Route path="*" element={
                 <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F5DD61' }}>
                   <div className="text-center p-8 max-w-md mx-auto">

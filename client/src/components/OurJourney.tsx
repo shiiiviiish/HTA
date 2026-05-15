@@ -140,10 +140,10 @@ const OurJourney = () => {
       {/* ===== BIG QUOTE SECTION ===== */}
       {/* TO UPDATE: Replace this quote with Kavya's real quote */}
       <div className="py-20 px-6 text-center" style={{backgroundColor: '#1a1a1a'}}>
-        <p className="text-sm font-bold uppercase tracking-widest mb-6" style={{color: '#ffffff'}}>
-          Kavya Atray, Founder
-        </p>
-        <blockquote className="text-3xl md:text-5xl font-serif italic text-white max-w-4xl mx-auto leading-relaxed">
+        <p className="text-3xl mb-6" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
+  Kavya Atray, Founder
+</p>
+        <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
           "Art is not what you see, but what you make others feel."
         </blockquote>
         {/* TO UPDATE: Replace the quote above with Kavya's real quote */}
@@ -151,8 +151,8 @@ const OurJourney = () => {
 
       {/* ===== TIMELINE SECTION ===== */}
       <div className="py-16 px-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-center mb-4">Our Story So Far</h2>
-        <p className="text-center text-gray-500 mb-12">Every great journey starts with a single step</p>
+        <h2 className="text-3xl font-serif text-center mb-4">The Story Behind the Art</h2>
+        <p className="text-center text-gray-500 mb-12">Documenting the steps, struggles, and milestones that built our community.</p>
 
         {/* TO UPDATE: Edit the timeline array at the top of this file with real dates and events */}
         <div className="relative">

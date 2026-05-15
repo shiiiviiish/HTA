@@ -60,7 +60,10 @@ const GiftsPage: React.FC = () => {
             return (
               <div key={product.id} className="flex flex-col bg-white rounded-2xl shadow-sm border hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-56 bg-gray-100">
-                  <img src={image} alt={product.name} className="w-full h-full object-cover" />
+  <img src={image} alt={product.name} className="w-full h-full object-cover" />
+  <span className="absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: '#59D5E0'}}>
+    {product.id}
+  </span>
                   {isOut && (
                     <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                       <span className="text-white font-bold">Out of Stock</span>
