@@ -139,15 +139,34 @@ const OurJourney = () => {
 
       {/* ===== BIG QUOTE SECTION ===== */}
       {/* TO UPDATE: Replace this quote with Kavya's real quote */}
+       {/* TO UPDATE: Replace the quote above with Kavya's real quote */}
       <div className="py-20 px-6 text-center" style={{backgroundColor: '#1a1a1a'}}>
-        <p className="text-3xl mb-6" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
+  
+  {/* Paw decorations top */}
+  <div className="flex justify-between items-center max-w-4xl mx-auto mb-8 px-4">
+    <span className="text-3xl opacity-30">🐾</span>
+    <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
+    <span className="text-3xl opacity-30">🐾</span>
+  </div>
+
+  <p className="text-3xl mb-6 flex items-center justify-center gap-4" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
+  <span className="opacity-40">——</span>
   Kavya Atray, Founder
+  <span className="opacity-40">——</span>
 </p>
-        <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
-          "Art is not what you see, but what you make others feel."
-        </blockquote>
-        {/* TO UPDATE: Replace the quote above with Kavya's real quote */}
-      </div>
+
+  <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
+    "Art is not what you see, but what you make others feel."
+  </blockquote>
+
+  {/* Paw decorations bottom */}
+  <div className="flex justify-between items-center max-w-4xl mx-auto mt-8 px-4">
+    <span className="text-3xl opacity-30">🐾</span>
+    <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
+    <span className="text-3xl opacity-30">🐾</span>
+  </div>
+
+</div>
 
       {/* ===== TIMELINE SECTION ===== */}
       <div className="py-16 px-6 max-w-4xl mx-auto">

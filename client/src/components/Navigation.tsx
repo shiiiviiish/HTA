@@ -11,7 +11,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: 'Home', path: '/', dropdown: [] },
   {
-    label: 'Art', path: '/shop', dropdown: [
+    label: 'Art Pieces', path: '/shop', dropdown: [
       { label: 'Art Originals', path: '/shop?category=Art Originals' },
       { label: 'Art Prints', path: '/shop?category=Art Prints' },
     ]
@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
     ]
   },
   {
-    label: 'Decor', path: '/shop', dropdown: [
+    label: 'Resign', path: '/shop', dropdown: [
       { label: 'Coasters', path: '/shop?category=Decor' },
       { label: 'Decoupage', path: '/shop?category=Decor' },
       { label: 'Jewellery', path: '/shop?category=Jewellery' },
