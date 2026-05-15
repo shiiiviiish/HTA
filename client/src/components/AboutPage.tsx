@@ -12,20 +12,20 @@ const AboutPage = () => {
 
       <div className="py-16 px-6 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-2xl overflow-hidden">
-  <img src={kavyaPhoto} alt="Kavya Atray" className="w-full object-contain rounded-2xl" />
+          <div className="rounded-2xl overflow-hidden" style={{height: '480px'}}>
+  <img 
+    src={kavyaPhoto} 
+    alt="Kavya Atray" 
+    className="w-full h-full object-cover rounded-2xl"
+  />
 </div>
           <div>
-            <h2 className="text-3xl font-serif mb-6">Hi, I'm Kavya Atray</h2>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              I'm the founder of Happiness Through Art — a creative wellbeing initiative rooted in Expressive Arts Therapy approaches. Through my work, I support emotional wellbeing, self-awareness, and inner growth using simple, accessible creative processes.
+            <h2 className="text-3xl font-serif mb-6" >Hi, I'm Kavya Atray</h2>
+            <p className="text-gray-600 mb-4 leading-relaxed text-justify">
+              I’m Kavya, founder of Happiness Through Art, a creative wellbeing initiative rooted in Expressive Arts Therapy approaches. Through workshops and creative practices, I support emotional wellbeing, self-awareness, and inner growth using simple, accessible forms of expression.
+My work brings together creativity, psychology, and spirituality to help individuals and groups manage stress, process emotions, and reconnect with themselves in a safe, non-judgmental space. Through Happiness Through Art, I continue to expand these offerings both offline and online, with a focus on emotional release, clarity, and deeper self-connection through art.
             </p>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              I design and facilitate workshops for individuals and groups, helping people manage stress, process emotions, and reconnect with themselves in ways that feel natural and non-intimidating. My approach brings together creativity, psychology, and spirituality in a way that is both practical and deeply personal.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Over time, I've had the opportunity to work with diverse audiences — from students to young adults to community groups. What matters most to me is creating spaces where people feel safe, seen, and heard.
-            </p>
+            
           </div>
         </div>
       </div>
