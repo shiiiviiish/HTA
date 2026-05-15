@@ -30,9 +30,9 @@ const TestimonialsSection = () => {
     <section className="py-20 px-4 md:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">What People Say</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-4">The HTA Experience</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Real experiences from people who've connected with Kavya's art and therapy.
+            Shared moments from those who have created and connected with us.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
