@@ -43,38 +43,37 @@ An artist from CHANDIGARH</p>
           <div>
             <h3 className="font-bold mb-4">ABOUT</h3>
             <ul className="space-y-3">
-              <li><a href="/about" className="text-gray-600 hover:text-black">About Kavya</a></li>
-              <li><a href="/therapy" className="text-gray-600 hover:text-black">Therapy</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Collaborations</a></li>
-            </ul>
+              <li><a href="/about">About Kavya</a></li>
+<li><a href="/therapy">Therapy</a></li>
+<li><a href="/our-journey">Collaborations</a></li></ul>
           </div>
 
           <div>
             <h3 className="font-bold mb-4">SHOP</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 hover:text-black">Paintings</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Bookmarks</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Art Prints</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Gifts</a></li>
+              <li><a href="/shop?category=Art Originals">Paintings</a></li>
+<li><a href="/shop?category=Stationery">Bookmarks</a></li>
+<li><a href="/shop?category=Art Prints">Art Prints</a></li>
+<li><a href="/shop?category=Decor">Gifts</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold mb-4">HELP</h3>
             <ul className="space-y-3">
-              <li><a href="/contact" className="text-gray-600 hover:text-black">Contact us</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">FAQs</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Shipping</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Returns</a></li>
+              <li><a href="/contact">Contact us</a></li>
+<li><a href="/faq" className="text-gray-600 hover:text-black">FAQs</a></li>
+<li><a href="/refund" className="text-gray-600 hover:text-black">Shipping</a></li>
+<li><a href="/refund" className="text-gray-600 hover:text-black">Returns</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold mb-4">MORE</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 hover:text-black">Privacy policy</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Terms of service</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-black">Refund policy</a></li>
+              <li><a href="/terms" className="text-gray-600 hover:text-black">Privacy policy</a></li>
+              <li><a href="/terms" className="text-gray-600 hover:text-black">Terms of service</a></li>
+              <li><a href="/refund" className="text-gray-600 hover:text-black">Refund policy</a></li>
             </ul>
           </div>
         </div>
