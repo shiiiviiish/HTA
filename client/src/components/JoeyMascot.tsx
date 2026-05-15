@@ -11,7 +11,6 @@ const JoeyMascot = () => {
         className="fixed bottom-6 left-6 z-50 flex items-end gap-2"
         onMouseEnter={() => setShowBubble(true)}
         onMouseLeave={() => setShowBubble(false)}
-        onClick={() => setShowModal(true)}
       >
         {showBubble && (
           <div
@@ -24,6 +23,7 @@ const JoeyMascot = () => {
         <img
           src="/images/Joey.gif"
           alt="Joey"
+          onClick={() => setShowModal(true)}
           className="w-20 h-20 rounded-full object-cover shadow-xl cursor-pointer hover:scale-110 transition-all duration-300"
           style={{ border: '3px solid #FAA300' }}
         />
@@ -32,8 +32,8 @@ const JoeyMascot = () => {
       {/* Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+          className="fixed inset-0 flex items-center justify-center"
+          style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 99999 }}
           onClick={() => setShowModal(false)}
         >
           <div
@@ -41,7 +41,6 @@ const JoeyMascot = () => {
             style={{ maxWidth: '360px', width: '90%' }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               onClick={() => setShowModal(false)}
               className="self-end text-gray-400 hover:text-gray-600 text-xl font-bold"
@@ -49,7 +48,6 @@ const JoeyMascot = () => {
               ✕
             </button>
 
-            {/* Joey big image */}
             <img
               src="/images/Joey.gif"
               alt="Joey"
@@ -57,7 +55,6 @@ const JoeyMascot = () => {
               style={{ border: '4px solid #FAA300' }}
             />
 
-            {/* Message */}
             <h2 className="text-2xl font-bold text-center" style={{ color: '#FF6B35' }}>
               Heyyyy! I'm Joey! 🐾
             </h2>
