@@ -1,1 +1,1 @@
-# happiness_through_art
+# Happiness_Through_Art
