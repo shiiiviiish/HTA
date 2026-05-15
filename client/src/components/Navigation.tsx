@@ -31,8 +31,8 @@ const navItems: NavItem[] = [
   },
   {
     label: 'Resign', path: '/shop', dropdown: [
-      { label: 'Coasters', path: '/shop?category=Decor' },
-      { label: 'Decoupage', path: '/shop?category=Decor' },
+      { label: 'Coasters', path: '/shop?category=Coasters' },
+      { label: 'Decoupage', path: '/shop?category=Decoupage' },
       { label: 'Jewellery', path: '/shop?category=Jewellery' },
     ]
   },
@@ -41,7 +41,7 @@ const navItems: NavItem[] = [
       { label: 'All Products', path: '/shop' },
       { label: 'Art Originals', path: '/shop?category=Art Originals' },
       { label: 'Stationery', path: '/shop?category=Stationery' },
-      { label: 'Decor', path: '/shop?category=Decor' },
+      { label: 'Resign', path: '/shop?category=Resign' },
       { label: 'Jewellery', path: '/shop?category=Jewellery' },
     ]
   },
