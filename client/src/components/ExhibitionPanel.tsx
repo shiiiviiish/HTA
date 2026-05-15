@@ -40,6 +40,7 @@ const exhibitionData: Record<string, {
       '/images/exhibitions/sector17/3.jpg',
       '/images/exhibitions/sector17/4.jpg',
       '/images/exhibitions/sector17/5.jpg',
+      '/images/exhibitions/sector17/6.jpg',
     ],
     stories: [
       {
@@ -74,7 +75,6 @@ const exhibitionData: Record<string, {
       { num: '1', label: 'Day' },
       { num: '∞', label: 'Memories' },
     ],
-    // ADD OR REMOVE PHOTOS FREELY — no other changes needed
     photos: [
       '/images/exhibitions/chitkara/1.jpg',
       '/images/exhibitions/chitkara/2.jpg',
@@ -121,32 +121,22 @@ const ShimlaContent = ({ ex, onClose }: any) => (
         </p>
       </div>
 
-      <div className="grid gap-3 mb-3" style={{ gridTemplateColumns: '2fr 1fr' }}>
-        <img src={ex.photos[0]} alt="Featured" className="w-full object-contain rounded-lg" style={{ height: '300px', backgroundColor: '#1a1a1a' }} />
-        <div className="flex flex-col gap-3">
-          <img src={ex.photos[1]} alt="Photo 2" className="w-full object-cover rounded-lg" style={{ height: '143px' }} />
-          <img src={ex.photos[2]} alt="Photo 3" className="w-full object-cover rounded-lg" style={{ height: '143px' }} />
-        </div>
-      </div>
-
-      <p className="text-sm leading-relaxed my-8" style={{ color: 'rgba(255,255,255,0.5)' }}>
-        {ex.description}
-      </p>
-
-      <p className="text-xs uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.25)' }}>
-        More from the exhibit
-      </p>
-      <div className="grid grid-cols-3 gap-3">
-        {ex.photos.slice(3).map((photo: string, i: number) => (
+      {/* All photos full size, stacked */}
+      <div className="flex flex-col gap-4">
+        {ex.photos.map((photo: string, i: number) => (
           <img
             key={i}
             src={photo}
-            alt={`Photo ${i + 4}`}
-            className="w-full object-cover rounded-lg hover:opacity-80 transition-opacity duration-300"
-            style={{ height: '110px' }}
+            alt={`Photo ${i + 1}`}
+            className="w-full rounded-lg"
+            style={{ objectFit: 'contain', backgroundColor: '#1a1a1a' }}
           />
         ))}
       </div>
+
+      <p className="text-sm leading-relaxed mt-8" style={{ color: 'rgba(255,255,255,0.5)' }}>
+        {ex.description}
+      </p>
     </div>
   </div>
 );
@@ -182,16 +172,17 @@ const Sector17Content = ({ ex, onClose }: any) => (
       {ex.stories.map((story: any, index: number) => (
         <div
           key={index}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12 pb-12"
+          className="flex flex-col gap-6 mb-12 pb-12"
           style={{ borderBottom: index < ex.stories.length - 1 ? '1px solid #f5f5f5' : 'none' }}
         >
+          {/* Full photo — no crop at all */}
           <img
             src={story.photo}
             alt={story.title}
-            className="w-full object-cover rounded-2xl"
-            style={{ height: '220px', order: index % 2 !== 0 ? 2 : 0 }}
+            className="w-full rounded-2xl"
+            style={{ objectFit: 'contain', backgroundColor: '#f9f9f9' }}
           />
-          <div style={{ order: index % 2 !== 0 ? 1 : 0 }}>
+          <div>
             <span className="text-xs font-semibold uppercase tracking-widest block mb-2" style={{ color: '#59D5E0' }}>
               {story.tag}
             </span>
@@ -202,16 +193,18 @@ const Sector17Content = ({ ex, onClose }: any) => (
       ))}
     </div>
 
+    {/* Remaining photos full size */}
     {ex.photos.slice(ex.stories.length).length > 0 && (
       <div className="max-w-2xl mx-auto px-6 mb-12">
         <p className="text-xs text-center uppercase tracking-widest text-gray-300 mb-6">More from the exhibit</p>
-        <div className="columns-2 md:columns-3 gap-4">
+        <div className="flex flex-col gap-4">
           {ex.photos.slice(ex.stories.length).map((photo: string, i: number) => (
             <img
               key={i}
               src={photo}
               alt={`Photo ${i + 1}`}
-              className="w-full mb-3 rounded-xl object-cover"
+              className="w-full rounded-xl"
+              style={{ objectFit: 'contain', backgroundColor: '#f9f9f9' }}
             />
           ))}
         </div>
@@ -253,14 +246,15 @@ const ChitkaraContent = ({ ex, onClose }: any) => (
       <p className="text-gray-500 leading-relaxed">{ex.description}</p>
     </div>
 
-    <div className="px-6 max-w-2xl mx-auto mb-10" style={{ columns: 3, gap: '10px' }}>
+    {/* All photos full size stacked */}
+    <div className="px-6 max-w-2xl mx-auto mb-10 flex flex-col gap-4">
       {ex.photos.map((photo: string, i: number) => (
         <img
           key={i}
           src={photo}
           alt={`Photo ${i + 1}`}
-          className="w-full rounded-xl object-cover mb-2 hover:scale-105 transition-transform duration-300"
-          style={{ breakInside: 'avoid', display: 'block' }}
+          className="w-full rounded-xl"
+          style={{ objectFit: 'contain', backgroundColor: '#fff0f5', display: 'block' }}
         />
       ))}
     </div>
@@ -289,7 +283,6 @@ const ExhibitionPanel = ({ id, onClose }: ExhibitionPanelProps) => {
   const ex = id ? exhibitionData[id] : null;
   const isOpen = !!id && !!ex;
 
-  // Lock body scroll when panel is open
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -301,7 +294,6 @@ const ExhibitionPanel = ({ id, onClose }: ExhibitionPanelProps) => {
 
   return (
     <>
-      {/* Dark overlay — click to close */}
       <div
         onClick={onClose}
         style={{
@@ -314,8 +306,6 @@ const ExhibitionPanel = ({ id, onClose }: ExhibitionPanelProps) => {
           transition: 'opacity 0.3s ease',
         }}
       />
-
-      {/* Slide-in panel */}
       <div
         style={{
           position: 'fixed',
