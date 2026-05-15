@@ -29,6 +29,18 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+      <div className="py-12 px-6 text-center rounded-2xl mt-8" style={{backgroundColor: '#F5DD61'}}>
+  <img
+    src="/images/Joey.gif"
+    alt="Joey"
+    className="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-lg"
+    style={{border: '3px solid #FAA300'}}
+  />
+  <h3 className="text-2xl font-serif mb-2" style={{color: '#5C3317'}}>And this is Joey!</h3>
+  <p className="text-gray-700 max-w-lg mx-auto text-sm">
+    Kavya's beloved beagle and the heart of the HTA studio. Every painting gets Joey's seal of approval before it finds its forever home! 🐾
+  </p>
+</div>
 
       <div className="py-16 px-6 text-center" style={{backgroundColor: '#F4538A'}}>
         <h2 className="text-3xl font-serif mb-8 text-white">What Drives Me</h2>
