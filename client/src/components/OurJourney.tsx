@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import shimlaPhoto from '../assets/shimlaexhibit.jpg';
 import sector17Photo from '../assets/sector17.jpg';
+import ExhibitionPanel from './ExhibitionPanel';
 
 const exhibitions = [
   {
@@ -30,7 +31,6 @@ const exhibitions = [
   },
 ];
 
-// Timeline data - UPDATE THESE DATES AND TEXT WITH KAVYA'S REAL STORY
 const timeline = [
   {
     year: '2020',
@@ -66,6 +66,7 @@ const timeline = [
 
 const OurJourney = () => {
   const navigate = useNavigate();
+  const [activeExhibition, setActiveExhibition] = useState<string | null>(null);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -88,22 +89,15 @@ const OurJourney = () => {
         </p>
       </div>
 
-      {/* ===== STORY VIDEO SECTION ===== */}
-      {/* TO UPDATE: Replace the Instagram reel ID in the src below */}
-      {/* Current reel: https://www.instagram.com/reel/DLUR0JxP1bg/ */}
-      {/* To change: replace DLUR0JxP1bg with the new reel ID */}
+      {/* Story Video Section */}
       <div className="py-16 px-6" style={{backgroundColor: '#F5DD61'}}>
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <div>
               <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{color: '#FF6B35'}}>
                 The Story Behind HTA
               </p>
-              <h2 className="text-4xl font-serif mb-6">
-                How it all began
-              </h2>
-              {/* TO UPDATE: Replace this placeholder text with Kavya's real story */}
+              <h2 className="text-4xl font-serif mb-6">How it all began</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
                 Happiness Through Art was born from a simple but powerful belief — that creativity has the power to heal, connect and bring genuine joy into our lives.
               </p>
@@ -113,67 +107,72 @@ const OurJourney = () => {
               <p className="text-gray-700 leading-relaxed">
                 Today, HTA is more than a brand. It is a community of people who believe in the magic of art.
               </p>
-              {/* TO UPDATE: Add Kavya's real story above when she sends it */}
             </div>
 
-            {/* Instagram Story Video */}
-            {/* Instagram Story Video */}
-<div className="flex justify-center">
-  <div style={{width: '320px', height: '520px', overflow: 'hidden', borderRadius: '24px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)'}}>
-    <iframe
-      src="https://www.instagram.com/reel/DLUR0JxP1bg/embed"
-      width="320"
-      height="600"
-      frameBorder="0"
-      scrolling="no"
-      allowTransparency={true}
-      allowFullScreen={true}
-      style={{marginTop: '0px', display: 'block'}}
-    />
-  </div>
-</div>
-
+            <div className="flex justify-center">
+              <div style={{width: '320px', height: '520px', overflow: 'hidden', borderRadius: '24px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)'}}>
+                <iframe
+                  src="https://www.instagram.com/reel/DLUR0JxP1bg/embed"
+                  width="320"
+                  height="600"
+                  frameBorder="0"
+                  scrolling="no"
+                  allowTransparency={true}
+                  allowFullScreen={true}
+                  style={{marginTop: '0px', display: 'block'}}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ===== BIG QUOTE SECTION ===== */}
-      {/* TO UPDATE: Replace this quote with Kavya's real quote */}
-       {/* TO UPDATE: Replace the quote above with Kavya's real quote */}
+      {/* Quote Section */}
       <div className="py-20 px-6 text-center" style={{backgroundColor: '#1a1a1a'}}>
-  
-  {/* Paw decorations top */}
-  <div className="flex justify-between items-center max-w-4xl mx-auto mb-8 px-4">
-    <span className="text-3xl opacity-30">🐾</span>
-    <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
-    <span className="text-3xl opacity-30">🐾</span>
-  </div>
+        <div className="flex justify-between items-center max-w-4xl mx-auto mb-8 px-4">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="white" opacity="0.4">
+            <ellipse cx="20" cy="30" rx="10" ry="13"/><ellipse cx="42" cy="18" rx="10" ry="13"/>
+            <ellipse cx="64" cy="18" rx="10" ry="13"/><ellipse cx="82" cy="30" rx="10" ry="13"/>
+            <path d="M15 55 Q50 100 85 55 Q70 35 50 40 Q30 35 15 55Z"/>
+          </svg>
+          <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="white" opacity="0.4">
+            <ellipse cx="20" cy="30" rx="10" ry="13"/><ellipse cx="42" cy="18" rx="10" ry="13"/>
+            <ellipse cx="64" cy="18" rx="10" ry="13"/><ellipse cx="82" cy="30" rx="10" ry="13"/>
+            <path d="M15 55 Q50 100 85 55 Q70 35 50 40 Q30 35 15 55Z"/>
+          </svg>
+        </div>
 
-  <p className="text-3xl mb-6 flex items-center justify-center gap-4" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
-  <span className="opacity-40">——</span>
-  Kavya Atray, Founder
-  <span className="opacity-40">——</span>
-</p>
+        <p className="text-3xl mb-6 flex items-center justify-center gap-4" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
+          <span className="opacity-40">——</span>
+          Kavya Atray, Founder
+          <span className="opacity-40">——</span>
+        </p>
 
-  <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
-    "Art is not what you see, but what you make others feel."
-  </blockquote>
+        <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
+          "Art is not what you see, but what you make others feel."
+        </blockquote>
 
-  {/* Paw decorations bottom */}
-  <div className="flex justify-between items-center max-w-4xl mx-auto mt-8 px-4">
-    <span className="text-3xl opacity-30">🐾</span>
-    <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
-    <span className="text-3xl opacity-30">🐾</span>
-  </div>
+        <div className="flex justify-between items-center max-w-4xl mx-auto mt-8 px-4">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="white" opacity="0.4">
+            <ellipse cx="20" cy="30" rx="10" ry="13"/><ellipse cx="42" cy="18" rx="10" ry="13"/>
+            <ellipse cx="64" cy="18" rx="10" ry="13"/><ellipse cx="82" cy="30" rx="10" ry="13"/>
+            <path d="M15 55 Q50 100 85 55 Q70 35 50 40 Q30 35 15 55Z"/>
+          </svg>
+          <div className="flex-1 border-t border-dashed border-white opacity-20 mx-4" />
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="white" opacity="0.4">
+            <ellipse cx="20" cy="30" rx="10" ry="13"/><ellipse cx="42" cy="18" rx="10" ry="13"/>
+            <ellipse cx="64" cy="18" rx="10" ry="13"/><ellipse cx="82" cy="30" rx="10" ry="13"/>
+            <path d="M15 55 Q50 100 85 55 Q70 35 50 40 Q30 35 15 55Z"/>
+          </svg>
+        </div>
+      </div>
 
-</div>
-
-      {/* ===== TIMELINE SECTION ===== */}
+      {/* Timeline Section */}
       <div className="py-16 px-6 max-w-4xl mx-auto">
         <h2 className="text-3xl font-serif text-center mb-4">The Story Behind the Art</h2>
         <p className="text-center text-gray-500 mb-12">Documenting the steps, struggles, and milestones that built our community.</p>
 
-        {/* TO UPDATE: Edit the timeline array at the top of this file with real dates and events */}
         <div className="relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-200" style={{top: 0, bottom: '-80px'}} />
           {timeline.map((item, index) => (
@@ -191,31 +190,26 @@ const OurJourney = () => {
           ))}
         </div>
 
-        {/* Bottom arrow and message */}
         <div className="flex flex-col items-center mt-8">
           <div className="w-0.5 h-16 bg-gray-200"></div>
           <div className="w-4 h-4 rounded-full" style={{backgroundColor: '#FF6B35'}}></div>
           <div className="w-0.5 h-8 bg-gray-200"></div>
           <div className="text-center mt-4 px-8 py-6 rounded-2xl" style={{backgroundColor: '#F5DD61'}}>
             <p className="text-2xl font-serif mb-2">And now...</p>
-            <p className="text-lg text-gray-700">We are expanding our reach beyond the studio to foster deeper connections through public art showcases and educational creative sessions.
-
-🎨✨</p>
-            <p className="text-3xl mt-4"></p>
+            <p className="text-lg text-gray-700">We are expanding our reach beyond the studio to foster deeper connections through public art showcases and educational creative sessions. 🎨✨</p>
           </div>
         </div>
-
       </div>
 
-      {/* Exhibitions */}
+      {/* Exhibitions — clicking opens panel, no navigation */}
       <div className="py-16 px-6 max-w-6xl mx-auto">
-       <h2 className="text-3xl font-serif text-center mb-4">Public Showcases & Creative Collaborations</h2>
-<p className="text-center text-gray-500 mb-12">Where the heart of HTA meets the energy of our community.</p>
+        <h2 className="text-3xl font-serif text-center mb-4">Public Showcases & Creative Collaborations</h2>
+        <p className="text-center text-gray-500 mb-12">Where the heart of HTA meets the energy of our community.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {exhibitions.map((ex) => (
             <div
               key={ex.id}
-              onClick={() => navigate('/exhibition/' + ex.id)}
+              onClick={() => setActiveExhibition(ex.id)}
               className="rounded-2xl h-96 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
               style={{backgroundColor: ex.color}}
             >
@@ -250,6 +244,12 @@ const OurJourney = () => {
           Join WhatsApp Community
         </a>
       </div>
+
+      {/* Exhibition Panel — slides in from right */}
+      <ExhibitionPanel
+        id={activeExhibition}
+        onClose={() => setActiveExhibition(null)}
+      />
 
     </div>
   );

@@ -122,7 +122,7 @@ const ShimlaContent = ({ ex, onClose }: any) => (
       </div>
 
       <div className="grid gap-3 mb-3" style={{ gridTemplateColumns: '2fr 1fr' }}>
-        <img src={ex.photos[0]} alt="Featured" className="w-full object-cover rounded-lg" style={{ height: '300px' }} />
+        <img src={ex.photos[0]} alt="Featured" className="w-full object-contain rounded-lg" style={{ height: '300px', backgroundColor: '#1a1a1a' }} />
         <div className="flex flex-col gap-3">
           <img src={ex.photos[1]} alt="Photo 2" className="w-full object-cover rounded-lg" style={{ height: '143px' }} />
           <img src={ex.photos[2]} alt="Photo 3" className="w-full object-cover rounded-lg" style={{ height: '143px' }} />
