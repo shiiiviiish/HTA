@@ -30,13 +30,8 @@ const HomePage = () => {
         <ProductRow />
       </AnimateOnScroll>
 
-      <AnimateOnScroll animation="opacity-100 translate-y-0" delay={300}>
-        <CategoriesSection />
-      </AnimateOnScroll>
-
-      <AnimateOnScroll animation="opacity-100 scale-100" delay={200}>
-        <GiftsSection />
-      </AnimateOnScroll>
+      
+      
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={100}>
         <CollaborationSection />
@@ -48,9 +43,7 @@ const HomePage = () => {
         <TestimonialsSection />
       </AnimateOnScroll>
 
-      <AnimateOnScroll animation="opacity-100 translate-y-0" delay={400}>
-        <GiftsSection /><CommunitySection />
-      </AnimateOnScroll>
+      
     </div>
   );
 };
