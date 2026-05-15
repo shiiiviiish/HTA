@@ -10,12 +10,45 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Home', path: '/', dropdown: [] },
-  { label: 'Art', path: '/art', dropdown: [] },
-  { label: 'Stationery', path: '/stationery', dropdown: [] },
-  { label: 'Gifts', path: '/gifts', dropdown: [] },
-  { label: 'Decor', path: '/decor', dropdown: [] },
-  { label: 'Therapy', path: '/therapy', dropdown: [] },
-  { label: 'Shop', path: '/shop', dropdown: [] },
+  {
+    label: 'Art', path: '/shop', dropdown: [
+      { label: 'Art Originals', path: '/shop?category=Art Originals' },
+{ label: 'Art Prints', path: '/shop?category=Art Prints' },
+    ]
+  },
+  {
+    label: 'Stationery', path: '/shop', dropdown: [
+      { label: 'Diaries', path: '/shop?category=Diaries' },
+      { label: 'Bookmarks', path: '/shop?category=Bookmarks' },
+      { label: 'Postcards', path: '/shop?category=Postcards' },
+      
+    ]
+  },
+  {
+    label: 'Gifts', path: '/shop', dropdown: [
+      { label: 'Kavya\'s Top Picks', path: '/shop?category=Kavya\'s+Top+Picks' },
+      { label: 'Gift Sets', path: '/shop?category=Gift+Sets' },
+      { label: 'Custom Orders', path: '/contact' },
+    ]
+  },
+  {
+    label: 'Decor', path: '/shop', dropdown: [
+      { label: 'Coasters', path: '/shop?category=Coasters' },
+      { label: 'Decoupage', path: '/shop?category=Decoupage' },
+      { label: 'Jewellery', path: '/shop?category=Jewellery' },
+    ]
+  },
+  
+{
+  label: 'Shop', path: '/shop', dropdown: [
+    { label: 'All Products', path: '/shop' },
+    { label: 'New In', path: '/shop' },
+    { label: 'Paintings', path: '/shop?category=Paintings' },
+    { label: 'Stationery', path: '/shop?category=Stationery' },
+    { label: 'Decor', path: '/shop?category=Decor' },
+    { label: 'Jewellery', path: '/shop?category=Jewellery' },
+  ]
+},
   { label: 'Our Journey', path: '/our-journey', dropdown: [] },
   { label: 'About', path: '/about', dropdown: [] },
   { label: 'Contact', path: '/contact', dropdown: [] },
@@ -83,29 +116,35 @@ export function Navigation() {
       </nav>
 
       <nav className="border-t border-b border-gray-200 py-3 hidden md:block">
-        <ul className="flex justify-center space-x-8">
+        <ul className="flex justify-center space-x-6">
           {navItems.map((item) => (
             <li
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => item.dropdown && item.dropdown.length > 0 && setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
+  key={item.label}
+  className="relative"
+  onMouseEnter={() => setOpenDropdown(item.label)}
+  onMouseLeave={() => setOpenDropdown(null)}
+>
               <Link
                 to={item.path || '/'}
-                className="relative text-gray-800 font-medium hover:text-black transition-colors flex items-center gap-1"
+                className="relative text-gray-800 font-medium hover:text-black transition-colors flex items-center gap-1 group"
               >
                 {item.label}
-                {item.dropdown && item.dropdown.length > 0 && <ChevronDown size={14} />}
+                {item.dropdown && item.dropdown.length > 0 && (
+                  <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''}`} />
+                )}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
               {item.dropdown && item.dropdown.length > 0 && openDropdown === item.label && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-xl rounded-xl py-2 z-50 border border-gray-100">
+                <div className="absolute top-full left-0 w-52 z-50 bg-white shadow-xl rounded-xl py-2 border border-gray-100" style={{marginTop: '0px', top: '100%'}}>
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.label}
                       to={sub.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:text-black transition-colors"
+                      style={{borderLeft: '3px solid transparent'}}
+                      onMouseEnter={(e) => (e.currentTarget.style.borderLeftColor = '#FF6B35')}
+                      onMouseLeave={(e) => (e.currentTarget.style.borderLeftColor = 'transparent')}
                       onClick={() => setOpenDropdown(null)}
                     >
                       {sub.label}

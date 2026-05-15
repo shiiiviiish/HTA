@@ -12,12 +12,12 @@ const KavyaMessage = () => {
     <>
       <div className="fixed bottom-24 right-6 z-50 flex items-center gap-2 roam-button">
         <div className="bg-white rounded-full px-3 py-1 shadow-lg">
-          <p className="text-xs font-medium" style={{ color: '#F4538A' }}>Message from Kavya!</p>
+          <p className="text-xs font-medium" style={{ color: '#FF6B35' }}>Message from Kavya!</p>
         </div>
         <button
           onClick={() => setIsOpen(true)}
           className="w-16 h-16 rounded-full shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition-all duration-300"
-          style={{ backgroundColor: '#F4538A' }}
+          style={{ backgroundColor: '#FF6B35' }}
           title="Message from Kavya"
         >
           🎥

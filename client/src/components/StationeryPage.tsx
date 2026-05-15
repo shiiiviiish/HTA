@@ -12,17 +12,17 @@ interface Product {
 }
 
 const stationeryProducts: Product[] = [
-  { id: '26DI001', name: 'Naughty David Diary', category: 'Diaries', price: 390, quantity: 13 },
-  { id: '26DI003', name: 'Brown Paper Diary', category: 'Diaries', price: 190, quantity: 22 },
-  { id: '26DI004', name: 'Cat Spiral Diary', category: 'Diaries', price: 300, quantity: 6 },
-  { id: '26DI012', name: 'Van Gogh Diary', category: 'Diaries', price: 390, quantity: 50 },
-  { id: '26DI013', name: 'Frida Kahlo Diary', category: 'Diaries', price: 390, quantity: 50 },
-  { id: '26BK001', name: 'Wooden Bookmark', category: 'Bookmarks', price: 80, quantity: 28 },
-  { id: '26PC001', name: 'Pardon Me Postcard', category: 'Postcards', price: 60, quantity: 100 },
-  { id: '26PC007', name: 'Shadi Kab Karoge Postcard', category: 'Postcards', price: 60, quantity: 100 },
-  { id: '26TB001', name: 'Tote Bag Red', category: 'Tote Bags', price: 300, quantity: 10 },
-  { id: '26TB002', name: 'Tote Bag Black', category: 'Tote Bags', price: 210, quantity: 9 },
-  { id: '26TB003', name: 'Tote Bag White', category: 'Tote Bags', price: 300, quantity: 8 },
+  { id: 'HTA-26-D-001', name: 'Naughty David Diary', category: 'Diaries', price: 390, quantity: 13 },
+  { id: 'HTA-26-D-002', name: 'Brown Paper Diary', category: 'Diaries', price: 190, quantity: 22 },
+  { id: 'HTA-26-D-003', name: 'Cat Spiral Diary', category: 'Diaries', price: 300, quantity: 6 },
+  { id: 'HTA-26-D-004', name: 'Van Gogh Diary', category: 'Diaries', price: 390, quantity: 50 },
+  { id: 'HTA-26-D-005', name: 'Frida Kahlo Diary', category: 'Diaries', price: 390, quantity: 50 },
+  { id: 'HTA-26-BM-001', name: 'Wooden Bookmark', category: 'Bookmarks', price: 80, quantity: 28 },
+  { id: 'HTA-26-PC-001', name: 'Pardon Me Postcard', category: 'Postcards', price: 60, quantity: 100 },
+  { id: 'HTA-26-PC-002', name: 'Shadi Kab Karoge Postcard', category: 'Postcards', price: 60, quantity: 100 },
+  { id: 'HTA-26-TB-001', name: 'Tote Bag Red', category: 'Tote Bags', price: 300, quantity: 10 },
+  { id: 'HTA-26-TB-002', name: 'Tote Bag Black', category: 'Tote Bags', price: 210, quantity: 9 },
+  { id: 'HTA-26-TB-003', name: 'Tote Bag White', category: 'Tote Bags', price: 300, quantity: 8 },
 ];
 
 const categories = ['All', 'Diaries', 'Bookmarks', 'Postcards', 'Tote Bags'];

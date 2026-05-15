@@ -63,11 +63,6 @@ function App() {
               <Route path="/decor" element={<DecorPage />} />
               <Route path="/gifts" element={<GiftsPage />} />
               <Route path="/exhibition/:id" element={<ExhibitionPage />} />
-              <Route path="/art" element={<ArtPage />} />
-              <Route path="/stationery" element={<StationeryPage />} />
-              <Route path="/decor" element={<DecorPage />} />
-              <Route path="/gifts" element={<GiftsPage />} />
-              
               <Route path="*" element={
                 <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F5DD61' }}>
                   <div className="text-center p-8 max-w-md mx-auto">
@@ -84,13 +79,12 @@ function App() {
                   </div>
                 </div>
               } />
-            
             </Routes>
           </main>
           <Footer />
         </div>
+      
         <KavyaMessage />
-
         {showScroll && (
           <button
             onClick={scrollToTop}
@@ -100,7 +94,6 @@ function App() {
             ↑
           </button>
         )}
-
       </Router>
     </CartProvider>
   );

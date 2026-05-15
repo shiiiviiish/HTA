@@ -7,7 +7,7 @@ export function SaleBanner() {
   const messages = [
     { text: "Art that heals — explore Kavya's original works!", link: "/" },
     { text: "Paintings, bookmarks and more — shop now!", link: "/" },
-    { text: "Book a therapy session with Kavya Atray", link: "https://wa.me/919877591063" },
+    { text: "Book an Expressive Art session with Kavya ", link: "https://wa.me/919877591063" },
     { text: "Join our WhatsApp Community!", link: "https://chat.whatsapp.com/D8qg0QhCRucCtESVUs9PTk" }
   ];
 
@@ -15,7 +15,7 @@ export function SaleBanner() {
   const prev = () => setSaleIndex((prev) => (prev - 1 + messages.length) % messages.length);
 
   return (
-    <div style={{backgroundColor: '#F4538A'}} className="py-2 px-4 flex items-center justify-center relative">
+    <div style={{backgroundColor: '#FF6B35'}} className="py-2 px-4 flex items-center justify-center relative">
       <button onClick={prev} className="absolute left-4 text-white">
         <ChevronLeft size={20} />
       </button>

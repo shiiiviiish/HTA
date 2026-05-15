@@ -20,8 +20,8 @@ const HomePage = () => {
       <HeroCarousel />
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={100}>
-        <Link to="/gifts" className="block w-full py-4 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all" style={{ backgroundColor: '#F4538A' }}>
-  💛 If Kavya could gift you anything... — See her top picks!
+        <Link to="/gifts" className="block w-full py-4 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all" style={{ backgroundColor: '#FF6B35' }}>
+  💛 If Kavya could gift you — See her top picks!
       </Link>
        <ProductGallery />
       </AnimateOnScroll>

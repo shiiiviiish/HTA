@@ -12,20 +12,20 @@ interface Product {
 }
 
 const artProducts: Product[] = [
-  { id: '26PA001', name: 'Reversed Dog', category: 'Paintings', price: 1600, quantity: 1 },
-  { id: '26PA002', name: 'Krishan Ji!', category: 'Paintings', price: 1200, quantity: 1 },
-  { id: '26PA003', name: 'The Beginning', category: 'Paintings', price: 6000, quantity: 1 },
-  { id: '26PA009', name: '3D Art Whale', category: 'Paintings', price: 5100, quantity: 1 },
-  { id: '26PA013', name: 'Different Circles', category: 'Paintings', price: 6500, quantity: 1 },
-  { id: '26TF001', name: 'The Faces We Keep - Men', category: 'Paintings', price: 2500, quantity: 2 },
-  { id: '26TF003', name: 'The Faces We Keep - Women', category: 'Paintings', price: 2500, quantity: 15 },
-  { id: '26MP001', name: 'Just Keep Swimming', category: 'Mini Paintings', price: 300, quantity: 1 },
-  { id: '26MP007', name: 'Beleaf', category: 'Mini Paintings', price: 500, quantity: 1 },
-  { id: '26MP014', name: 'Black Dots on Rainbow', category: 'Mini Paintings', price: 800, quantity: 1 },
-  { id: '26MP017', name: 'Zodiac - Virgo', category: 'Mini Paintings', price: 350, quantity: 1 },
-  { id: '26MP023', name: 'One Line Rose', category: 'Mini Paintings', price: 500, quantity: 1 },
-  { id: '26ZA001', name: 'Zen Art Square Red', category: 'Art Prints', price: 1500, quantity: 7 },
-  { id: '26ZA002', name: 'Zen Art Square Blue', category: 'Art Prints', price: 1500, quantity: 6 },
+  { id: 'HTA-26-AO-001', name: 'Reversed Dog', category: 'Paintings', price: 1600, quantity: 1 },
+  { id: 'HTA-26-AO-002', name: 'Krishan Ji!', category: 'Paintings', price: 1200, quantity: 1 },
+  { id: 'HTA-26-AO-003', name: 'The Beginning', category: 'Paintings', price: 6000, quantity: 1 },
+  { id: 'HTA-26-AO-004', name: '3D Art Whale', category: 'Paintings', price: 5100, quantity: 1 },
+  { id: 'HTA-26-AO-005', name: 'Different Circles', category: 'Paintings', price: 6500, quantity: 1 },
+  { id: 'HTA-26-AO-062', name: 'The Faces We Keep - Men', category: 'Paintings', price: 2500, quantity: 2 },
+  { id: 'HTA-26-AO-064', name: 'The Faces We Keep - Women', category: 'Paintings', price: 2500, quantity: 15 },
+  { id: 'HTA-26-AO-031', name: 'Just Keep Swimming', category: 'Mini Paintings', price: 300, quantity: 1 },
+  { id: 'HTA-26-AO-037', name: 'Beleaf', category: 'Mini Paintings', price: 500, quantity: 1 },
+  { id: 'HTA-26-AO-044', name: 'Black Dots on Rainbow', category: 'Mini Paintings', price: 800, quantity: 1 },
+  { id: 'HTA-26-AO-047', name: 'Zodiac - Virgo', category: 'Mini Paintings', price: 350, quantity: 1 },
+  { id: 'HTA-26-AO-053', name: 'One Line Rose', category: 'Mini Paintings', price: 500, quantity: 1 },
+  { id: 'HTA-26-AP-001', name: 'Zen Art Square Red', category: 'Art Prints', price: 1500, quantity: 7 },
+  { id: 'HTA-26-AP-002', name: 'Zen Art Square Blue', category: 'Art Prints', price: 1500, quantity: 6 },
 ];
 
 const categories = ['All', 'Paintings', 'Mini Paintings', 'Art Prints'];

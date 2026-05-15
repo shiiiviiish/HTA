@@ -12,13 +12,13 @@ interface Product {
 }
 
 const decorProducts: Product[] = [
-  { id: '26CO001', name: 'Coasters Square Set of 3', category: 'Coasters', price: 590, quantity: 2 },
-  { id: '26CO002', name: 'Coasters Round Set of 5', category: 'Coasters', price: 950, quantity: 2 },
-  { id: '26DC002', name: 'Decoupage Magnets Square', category: 'Decoupage', price: 140, quantity: 5 },
-  { id: '26DC003', name: 'Decoupage Magnets Round', category: 'Decoupage', price: 140, quantity: 26 },
-  { id: '26JW001', name: 'Square Necklace', category: 'Jewellery', price: 600, quantity: 1 },
-  { id: '26JW004', name: 'Necklace Earrings Set', category: 'Jewellery', price: 1200, quantity: 2 },
-  { id: '26JW007', name: 'Earrings Style 1', category: 'Jewellery', price: 750, quantity: 1 },
+  { id: 'HTA-26-DC-001', name: 'Coasters Square Set of 3', category: 'Coasters', price: 590, quantity: 2 },
+  { id: 'HTA-26-DC-002', name: 'Coasters Round Set of 5', category: 'Coasters', price: 950, quantity: 2 },
+  { id: 'HTA-26-DC-005', name: 'Decoupage Magnets Square', category: 'Decoupage', price: 140, quantity: 5 },
+  { id: 'HTA-26-DC-006', name: 'Decoupage Magnets Round', category: 'Decoupage', price: 140, quantity: 26 },
+  { id: 'HTA-26-JW-001', name: 'Square Necklace', category: 'Jewellery', price: 600, quantity: 1 },
+  { id: 'HTA-26-JW-003', name: 'Necklace Earrings Set', category: 'Jewellery', price: 1200, quantity: 2 },
+  { id: 'HTA-26-JW-005', name: 'Earrings Style 1', category: 'Jewellery', price: 750, quantity: 1 },
 ];
 
 const categories = ['All', 'Coasters', 'Decoupage', 'Jewellery'];

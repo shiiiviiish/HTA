@@ -13,14 +13,16 @@ interface Product {
 }
 
 const giftProducts: Product[] = [
-  { id: '26DI012', name: 'Van Gogh Diary', category: 'Diaries', price: 390, quantity: 50, kavyaNote: 'Perfect for the friend who loves to journal and appreciates art!' },
-  { id: '26DI013', name: 'Frida Kahlo Diary', category: 'Diaries', price: 390, quantity: 50, kavyaNote: 'For the bold, expressive soul in your life.' },
-  { id: '26BK001', name: 'Wooden Bookmark', category: 'Bookmarks', price: 80, quantity: 28, kavyaNote: 'A small but meaningful gift for every book lover.' },
-  { id: '26TB001', name: 'Tote Bag Red', category: 'Tote Bags', price: 300, quantity: 10, kavyaNote: 'Carry art everywhere you go!' },
-  { id: '26CO001', name: 'Coasters Square Set of 3', category: 'Coasters', price: 590, quantity: 2, kavyaNote: 'A practical gift with an artistic touch for any home.' },
-  { id: '26DC003', name: 'Decoupage Magnets Round', category: 'Decoupage', price: 140, quantity: 26, kavyaNote: 'Tiny art pieces that bring joy every time you open the fridge!' },
-  { id: '26PC001', name: 'Pardon Me Postcard', category: 'Postcards', price: 60, quantity: 100, kavyaNote: 'Say it with art. The perfect little note to send someone you love.' },
-  { id: '26MP001', name: 'Just Keep Swimming', category: 'Mini Paintings', price: 300, quantity: 1, kavyaNote: 'A reminder to keep going — gift this to someone who needs a little push.' },
+  { id: 'HTA-26-D-004', name: 'Van Gogh Diary', category: 'Diaries', price: 390, quantity: 50, kavyaNote: 'Perfect for the friend who loves to journal and appreciates art!' },
+  { id: 'HTA-26-D-005', name: 'Frida Kahlo Diary', category: 'Diaries', price: 390, quantity: 50, kavyaNote: 'For the bold, expressive soul in your life.' },
+  { id: 'HTA-26-BM-001', name: 'Wooden Bookmark', category: 'Bookmarks', price: 80, quantity: 28, kavyaNote: 'A small but meaningful gift for every book lover.' },
+  { id: 'HTA-26-TB-001', name: 'Tote Bag Red', category: 'Tote Bags', price: 300, quantity: 10,  kavyaNote: 'A bold statement piece for the friend who isn’t afraid to stand out!.'  },
+  { id: 'HTA-26-TB-002', name: 'Tote Bag Black', category: 'Tote Bags', price: 210, quantity: 9,  kavyaNote: 'A timeless classic that stays chic, no matter where the day takes you!.'  },
+  { id: 'HTA-26-TB-003', name: 'Tote Bag White', category: 'Tote Bags', price: 300, quantity: 8, kavyaNote: 'A clean, minimalist canvas for your brightest ideas and daily essentials!.' },
+  { id: 'HTA-26-DC-001', name: 'Coasters Square Set of 3', category: 'Coasters', price: 590, quantity: 2, kavyaNote: 'A practical gift with an artistic touch for any home.' },
+  { id: 'HTA-26-DC-006', name: 'Decoupage Magnets Round', category: 'Decoupage', price: 140, quantity: 26, kavyaNote: 'Tiny art pieces that bring joy every time you open the fridge!' },
+  { id: 'HTA-26-PC-001', name: 'Pardon Me Postcard', category: 'Postcards', price: 60, quantity: 100, kavyaNote: 'Say it with art. The perfect little note to send someone you love.' },
+  { id: 'HTA-26-AO-031', name: 'Just Keep Swimming', category: 'Mini Paintings', price: 300, quantity: 1, kavyaNote: 'A reminder to keep going — gift this to someone who needs a little push.' },
 ];
 
 const GiftsPage: React.FC = () => {

@@ -2,11 +2,11 @@ import React from 'react';
 import { useCart } from '../context/CartContext';
 
 const products = [
-  { id: '26PA001', name: 'Reversed Dog', type: 'Original Painting', price: 1600, inStock: true, quantity: 1, featured: true },
-  { id: '26MP001', name: 'Just Keep Swimming', type: 'Mini Painting', price: 300, inStock: true, quantity: 1, featured: false },
-  { id: '26DI012', name: 'Van Gogh Diary', type: 'Diary', price: 390, inStock: true, quantity: 50, featured: false },
-  { id: '26BK001', name: 'Wooden Bookmark', type: 'Bookmark', price: 80, inStock: true, quantity: 28, featured: false },
-  { id: '26JW004', name: 'Necklace and Earrings Set', type: 'Jewellery', price: 1200, inStock: true, quantity: 2, featured: false },
+  { id: 'HTA-26-AO-001', name: 'Reversed Dog', type: 'Original Painting', price: 1600, inStock: true, quantity: 1, featured: true },
+  { id: 'HTA-26-AO-031', name: 'Just Keep Swimming', type: 'Mini Painting', price: 300, inStock: true, quantity: 1, featured: false },
+  { id: 'HTA-26-D-004', name: 'Van Gogh Diary', type: 'Diary', price: 390, inStock: true, quantity: 50, featured: false },
+  { id: 'HTA-26-BM-001', name: 'Wooden Bookmark', type: 'Bookmark', price: 80, inStock: true, quantity: 28, featured: false },
+  { id: 'HTA-26-JW-003', name: 'Necklace and Earrings Set', type: 'Jewellery', price: 1200, inStock: true, quantity: 2, featured: false },
 ];
 
 const image = 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80';
