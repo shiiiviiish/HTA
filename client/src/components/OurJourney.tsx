@@ -93,12 +93,10 @@ const TimelineItem = ({ item, index }: { item: typeof timeline[0]; index: number
 
   return (
     <div
-      ref={ref}
-      className="relative flex items-center mb-12"
-      style={{
-        flexDirection: isLeft ? 'row' : 'row-reverse',
-      }}
-    >
+  ref={ref}
+  className="relative flex items-center mb-12 timeline-row"
+  style={{ flexDirection: isLeft ? 'row' : 'row-reverse' }}
+>
       <div
         className="w-1/2 px-8"
         style={{
@@ -309,18 +307,13 @@ const OurJourney = () => {
 
       <style>{`
   @media (max-width: 768px) {
-    .timeline-card {
-      padding: 12px !important;
-      word-break: normal !important;
-      overflow-wrap: break-word !important;
+    .timeline-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
     }
-    .timeline-card h3 {
-      font-size: 13px !important;
-      word-break: normal !important;
-    }
-    .timeline-card p {
-      font-size: 11px !important;
-      line-height: 1.5 !important;
+    .timeline-row .w-1\/2 {
+      width: 75% !important;
+      padding: 0 0 0 32px !important;
     }
   }
 `}</style>

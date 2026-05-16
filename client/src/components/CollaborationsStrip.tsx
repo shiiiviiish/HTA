@@ -131,13 +131,13 @@ const CollaborationsStrip = () => {
                 />
               )}
               <style>{`
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .collab-heading {
       font-size: 26px !important;
     }
     .collab-logo {
-      max-width: 110px !important;
-      max-height: 60px !important;
+      max-width: 100px !important;
+      max-height: 50px !important;
     }
   }
 `}</style>
