@@ -66,7 +66,6 @@ function App() {
               <Route path="/stationery" element={<StationeryPage />} />
               <Route path="/decor" element={<DecorPage />} />
               <Route path="/gifts" element={<GiftsPage />} />
-              <Route path="/exhibition/:id" element={<ExhibitionPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/refund" element={<RefundPage />} />

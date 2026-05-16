@@ -12,7 +12,7 @@ import Footer from './Footer';
 import ProductRow from './ProductRow';
 import AnimateOnScroll from './AnimateOnScroll';
 import { Link } from 'react-router-dom';
-
+import CollaborationsStrip from './CollaborationsStrip';
 
 const HomePage = () => {
   return (
@@ -30,18 +30,24 @@ const HomePage = () => {
         <ProductRow />
       </AnimateOnScroll>
 
+      <CollaborationsStrip />
+
       
       
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={100}>
         <CollaborationSection />
       </AnimateOnScroll>
+
+      
+
+
       <div className="py-16 px-6 text-center" style={{backgroundColor: '#F5DD61'}}>
   <img
     src="/images/Joey.gif"
     alt="Joey"
     className="w-40 h-40 rounded-full object-cover mx-auto mb-6 shadow-xl"
-    style={{border: '4px solid #FAA300'}}
+    style={{border: '4px solid #F4538A'}}
   />
   <h2 className="text-3xl font-serif mb-3" style={{color: '#5C3317'}}>Meet Joey!</h2>
   <p className="text-gray-700 max-w-xl mx-auto">
