@@ -46,9 +46,15 @@ const CollaborationsStrip = () => {
   <p style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(0,0,0,0.4)', marginBottom: '8px' }}>
 
   </p>
-  <h2 style={{ fontSize: '40px', fontFamily: "var(--font-serif)", color: '#5C3317', margin: 0, fontWeight: 500 }}>
-    Spaces We've Transformed Together
-  </h2>
+  <h2 className="collab-heading" style={{
+  fontSize: '40px',
+  fontFamily: "var(--font-serif)",
+  color: '#5C3317',
+  margin: 0,
+  fontWeight: 500,
+}}>
+  Spaces We've Transformed Together
+</h2>
 </div>
 
       {/* Main row with arrows and logos */}
@@ -117,13 +123,24 @@ const CollaborationsStrip = () => {
                   src={collab.logo}
                   alt={collab.name}
                   style={{
-                    maxWidth: '450px',
-                    maxHeight: '240px',
+                    maxWidth: '320px',
+                    maxHeight: '150px',
                     objectFit: 'contain',
                     filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.15))',
                   }}
                 />
               )}
+              <style>{`
+  @media (max-width: 480px) {
+    .collab-heading {
+      font-size: 26px !important;
+    }
+    .collab-logo {
+      max-width: 110px !important;
+      max-height: 60px !important;
+    }
+  }
+`}</style>
             </div>
           ))}
         </div>

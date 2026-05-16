@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import shimlaPhoto from '../assets/shimlaexhibit.jpg';
 import sector17Photo from '../assets/sector17.jpg';
@@ -64,6 +64,72 @@ const timeline = [
   },
 ];
 
+// Hook to detect when element enters viewport
+const useInView = (threshold = 0.2) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+};
+
+// Individual animated timeline item
+const TimelineItem = ({ item, index }: { item: typeof timeline[0]; index: number }) => {
+  const { ref, inView } = useInView(0.2);
+  const isLeft = index % 2 === 0;
+
+  return (
+    <div
+      ref={ref}
+      className="relative flex items-center mb-12"
+      style={{
+        flexDirection: isLeft ? 'row' : 'row-reverse',
+      }}
+    >
+      <div
+        className="w-1/2 px-8"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView
+            ? 'translateX(0)'
+            : isLeft ? 'translateX(-50px)' : 'translateX(50px)',
+          transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`,
+        }}
+      >
+        <div className="bg-white rounded-2xl p-6 shadow-sm border">
+          <p className="text-sm font-bold mb-1" style={{ color: item.color }}>{item.year}</p>
+          <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+
+      <div
+        className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-white"
+        style={{
+          backgroundColor: item.color,
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0)',
+          transition: `opacity 0.4s ease ${index * 0.15 + 0.3}s, transform 0.4s ease ${index * 0.15 + 0.3}s`,
+        }}
+      />
+      <div className="w-1/2" />
+    </div>
+  );
+};
+
 const OurJourney = () => {
   const navigate = useNavigate();
   const [activeExhibition, setActiveExhibition] = useState<string | null>(null);
@@ -82,7 +148,7 @@ const OurJourney = () => {
     <div className="min-h-screen bg-white">
 
       {/* Hero */}
-      <div className="py-20 px-6 text-center" style={{backgroundColor: '#FAA300'}}>
+      <div className="py-20 px-6 text-center" style={{ backgroundColor: '#FAA300' }}>
         <h1 className="text-5xl font-serif mb-4 text-white">Our Journey</h1>
         <p className="text-lg text-white max-w-2xl mx-auto">
           Moments, memories and art that brought happiness to peoples lives.
@@ -90,11 +156,11 @@ const OurJourney = () => {
       </div>
 
       {/* Story Video Section */}
-      <div className="py-16 px-6" style={{backgroundColor: '#F5DD61'}}>
+      <div className="py-16 px-6" style={{ backgroundColor: '#F5DD61' }}>
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{color: '#FF6B35'}}>
+              <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#FF6B35' }}>
                 The Story Behind HTA
               </p>
               <h2 className="text-4xl font-serif mb-6">How it all began</h2>
@@ -110,7 +176,7 @@ const OurJourney = () => {
             </div>
 
             <div className="flex justify-center">
-              <div style={{width: '320px', height: '520px', overflow: 'hidden', borderRadius: '24px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)'}}>
+              <div style={{ width: '320px', height: '520px', overflow: 'hidden', borderRadius: '24px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
                 <iframe
                   src="https://www.instagram.com/reel/DLUR0JxP1bg/embed"
                   width="320"
@@ -119,7 +185,7 @@ const OurJourney = () => {
                   scrolling="no"
                   allowTransparency={true}
                   allowFullScreen={true}
-                  style={{marginTop: '0px', display: 'block'}}
+                  style={{ marginTop: '0px', display: 'block' }}
                 />
               </div>
             </div>
@@ -128,7 +194,7 @@ const OurJourney = () => {
       </div>
 
       {/* Quote Section */}
-      <div className="py-20 px-6 text-center" style={{backgroundColor: '#1a1a1a'}}>
+      <div className="py-20 px-6 text-center" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="flex justify-between items-center max-w-4xl mx-auto mb-8 px-4">
           <svg width="28" height="28" viewBox="0 0 100 100" fill="white" opacity="0.4">
             <ellipse cx="20" cy="30" rx="10" ry="13"/><ellipse cx="42" cy="18" rx="10" ry="13"/>
@@ -143,13 +209,13 @@ const OurJourney = () => {
           </svg>
         </div>
 
-        <p className="text-3xl mb-6 flex items-center justify-center gap-4" style={{color: '#ffffff', fontFamily: "'MoglanDemo', serif"}}>
+        <p className="text-3xl mb-6 flex items-center justify-center gap-4" style={{ color: '#ffffff', fontFamily: "'MoglanDemo', serif" }}>
           <span className="opacity-40">——</span>
           Kavya Atray, Founder
           <span className="opacity-40">——</span>
         </p>
 
-        <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{fontFamily: "'Playfair Display', serif"}}>
+        <blockquote className="text-3xl md:text-5xl italic text-white max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
           "Art is not what you see, but what you make others feel."
         </blockquote>
 
@@ -174,34 +240,24 @@ const OurJourney = () => {
         <p className="text-center text-gray-500 mb-12">Documenting the steps, struggles, and milestones that built our community.</p>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-200" style={{top: 0, bottom: '-80px'}} />
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-200" style={{ top: 0, bottom: '-80px' }} />
           {timeline.map((item, index) => (
-            <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-              <div className="w-1/2 px-8">
-                <div className="bg-white rounded-2xl p-6 shadow-sm border">
-                  <p className="text-sm font-bold mb-1" style={{color: item.color}}>{item.year}</p>
-                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-white" style={{backgroundColor: item.color}} />
-              <div className="w-1/2" />
-            </div>
+            <TimelineItem key={index} item={item} index={index} />
           ))}
         </div>
 
         <div className="flex flex-col items-center mt-8">
           <div className="w-0.5 h-16 bg-gray-200"></div>
-          <div className="w-4 h-4 rounded-full" style={{backgroundColor: '#FF6B35'}}></div>
+          <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#FF6B35' }}></div>
           <div className="w-0.5 h-8 bg-gray-200"></div>
-          <div className="text-center mt-4 px-8 py-6 rounded-2xl" style={{backgroundColor: '#F5DD61'}}>
+          <div className="text-center mt-4 px-8 py-6 rounded-2xl" style={{ backgroundColor: '#F5DD61' }}>
             <p className="text-2xl font-serif mb-2">And now...</p>
             <p className="text-lg text-gray-700">We are expanding our reach beyond the studio to foster deeper connections through public art showcases and educational creative sessions. 🎨✨</p>
           </div>
         </div>
       </div>
 
-      {/* Exhibitions — clicking opens panel, no navigation */}
+      {/* Exhibitions */}
       <div className="py-16 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl font-serif text-center mb-4">Public Showcases & Creative Collaborations</h2>
         <p className="text-center text-gray-500 mb-12">Where the heart of HTA meets the energy of our community.</p>
@@ -211,7 +267,7 @@ const OurJourney = () => {
               key={ex.id}
               onClick={() => setActiveExhibition(ex.id)}
               className="rounded-2xl h-96 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
-              style={{backgroundColor: ex.color}}
+              style={{ backgroundColor: ex.color }}
             >
               {ex.photo && (
                 <img src={ex.photo} alt={ex.title} className="absolute inset-0 w-full h-full object-cover" />
@@ -229,7 +285,7 @@ const OurJourney = () => {
       </div>
 
       {/* Community */}
-      <div className="py-16 px-6 text-center" style={{backgroundColor: '#FAA300'}}>
+      <div className="py-16 px-6 text-center" style={{ backgroundColor: '#FAA300' }}>
         <h2 className="text-3xl font-serif mb-4 text-white">Join Our Community</h2>
         <p className="text-white mb-8 max-w-xl mx-auto">
           Stay updated with new artwork, workshops, therapy sessions and events.
@@ -239,17 +295,25 @@ const OurJourney = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 rounded-full font-medium text-white"
-          style={{backgroundColor: '#25D366'}}
+          style={{ backgroundColor: '#25D366' }}
         >
           Join WhatsApp Community
         </a>
       </div>
 
-      {/* Exhibition Panel — slides in from right */}
+      {/* Exhibition Panel */}
       <ExhibitionPanel
         id={activeExhibition}
         onClose={() => setActiveExhibition(null)}
       />
+
+      <style>{`
+        @media (max-width: 768px) {
+          .timeline-card {
+            padding: 12px !important;
+          }
+        }
+      `}</style>
 
     </div>
   );
