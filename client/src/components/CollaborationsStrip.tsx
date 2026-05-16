@@ -99,7 +99,7 @@ const CollaborationsStrip = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '48px',
+          gap: '16px',
           width: '100%',
           maxWidth: '860px',
           margin: '0 auto',
