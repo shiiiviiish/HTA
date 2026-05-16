@@ -129,4 +129,6 @@ h1, h2, h3, h4, .font-serif {
   to { transform: rotate(360deg); }
 }
 
-
+:root {
+  color-scheme: light only;
+}
