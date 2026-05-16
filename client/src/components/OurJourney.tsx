@@ -308,12 +308,22 @@ const OurJourney = () => {
       />
 
       <style>{`
-        @media (max-width: 768px) {
-          .timeline-card {
-            padding: 12px !important;
-          }
-        }
-      `}</style>
+  @media (max-width: 768px) {
+    .timeline-card {
+      padding: 12px !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+    }
+    .timeline-card h3 {
+      font-size: 13px !important;
+      word-break: normal !important;
+    }
+    .timeline-card p {
+      font-size: 11px !important;
+      line-height: 1.5 !important;
+    }
+  }
+`}</style>
 
     </div>
   );
