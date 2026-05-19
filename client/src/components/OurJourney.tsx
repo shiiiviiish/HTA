@@ -309,11 +309,14 @@ const OurJourney = () => {
   @media (max-width: 768px) {
     .timeline-row {
       flex-direction: column !important;
-      align-items: flex-start !important;
+      align-items: center !important;
     }
     .timeline-row .w-1\/2 {
-      width: 75% !important;
-      padding: 0 0 0 32px !important;
+      width: 90% !important;
+      padding: 0 !important;
+    }
+    .timeline-row .absolute {
+      display: none !important;
     }
   }
 `}</style>

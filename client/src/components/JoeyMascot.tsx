@@ -67,7 +67,7 @@ const JoeyMascot = () => {
             <button
               onClick={() => setShowModal(false)}
               className="mt-2 px-6 py-2 rounded-full text-white font-semibold text-sm"
-              style={{ backgroundColor: '#F4538A' }}
+              style={{ backgroundColor: '#FAA300' }}
             >
               Bye Joey! 👋
             </button>
