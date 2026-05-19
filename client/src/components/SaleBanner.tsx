@@ -5,11 +5,12 @@ export function SaleBanner() {
   const [saleIndex, setSaleIndex] = useState(0);
 
   const messages = [
-    { text: "Art that heals — explore Kavya's original works!", link: "/" },
-    { text: "Paintings, bookmarks and more — shop now!", link: "/" },
-    { text: "Book an Expressive Art session with Kavya ", link: "https://wa.me/919877591063" },
-    { text: "Join our WhatsApp Community!", link: "https://chat.whatsapp.com/D8qg0QhCRucCtESVUs9PTk" }
-  ];
+  { text: "Art that heals — explore Kavya's original works!", link: "/" },
+  { text: "Paintings, bookmarks and more — shop now!", link: "/" },
+  { text: "Book an Expressive Art session with Kavya", link: "https://wa.me/919877591063" },
+  { text: "Join our WhatsApp Community!", link: "https://chat.whatsapp.com/D8qg0QhCRucCtESVUs9PTk" },
+  { text: "✨ Kavya now takes mural & wall art commissions — Enquire now!", link: "https://wa.me/919877591063?text=Hey Kavya! I am interested in a mural/wall art project. Can we discuss?" },
+];
 
   const next = () => setSaleIndex((prev) => (prev + 1) % messages.length);
   const prev = () => setSaleIndex((prev) => (prev - 1 + messages.length) % messages.length);
