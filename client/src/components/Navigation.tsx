@@ -45,6 +45,7 @@ const navItems: NavItem[] = [
       { label: 'Jewellery', path: '/shop?category=Jewellery' },
     ]
   },
+  { label: 'Gallery', path: '/gallery', dropdown: [] },
   { label: 'Our Journey', path: '/our-journey', dropdown: [] },
   { label: 'About', path: '/about', dropdown: [] },
   { label: 'Contact', path: '/contact', dropdown: [] },
