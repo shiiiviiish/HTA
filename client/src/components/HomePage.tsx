@@ -18,16 +18,14 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* Mural banner — before hero */}
-      <a
-        href="https://wa.me/919877591063?text=Hey Kavya! I am interested in a mural/wall art project. Can we discuss?"
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* Mural banner — links to Live Art page */}
+      <Link
+        to="/live-art"
         className="block w-full py-3 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all"
         style={{ backgroundColor: '#FF6B35' }}
       >
         🎨 Transform your space with Live Art by Kavya — Homes, Cafés, Offices →
-      </a>
+      </Link>
 
       <HeroCarousel />
 
