@@ -24,7 +24,7 @@ const HomePage = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full py-3 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all"
-        style={{ backgroundColor: '#1a1a1a' }}
+        style={{ backgroundColor: '#FF6B35' }}
       >
         🎨 Transform your space with Live Art by Kavya — Homes, Cafés, Offices →
       </a>
