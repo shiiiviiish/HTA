@@ -47,6 +47,7 @@ const navItems: NavItem[] = [
   },
   { label: 'Gallery', path: '/gallery', dropdown: [] },
   { label: 'Live Art', path: '/live-art', dropdown: [] },
+  { label: 'Blog', path: '/blog', dropdown: [] },
   { label: 'Our Journey', path: '/our-journey', dropdown: [] },
   { label: 'About', path: '/about', dropdown: [] },
   { label: 'Contact', path: '/contact', dropdown: [] },

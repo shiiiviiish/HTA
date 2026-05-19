@@ -27,6 +27,7 @@ import RefundPage from './components/RefundPage';
 import JoeyMascot from './components/JoeyMascot';
 import GalleryPage from './components/GalleryPage';
 import LiveArtPage from './components/LiveArtPage';
+import BlogPage from './components/BlogPage';
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
@@ -74,6 +75,7 @@ function App() {
               <Route path="/kavya-picks" element={<GiftsPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/live-art" element={<LiveArtPage />} />
+              <Route path="/blog" element={<BlogPage />} />
               <Route path="*" element={
                 <div className="min-h-screen flex items-center justify-center" style={{backgroundColor: '#F5DD61'}}>
                   <div className="text-center p-8 max-w-md mx-auto">
