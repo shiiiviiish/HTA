@@ -25,7 +25,6 @@ import FAQPage from './components/FAQPage';
 import TermsPage from './components/TermsPage';
 import RefundPage from './components/RefundPage';
 import JoeyMascot from './components/JoeyMascot';
-import GalleryPage from './components/GalleryPage';
 import LiveArtPage from './components/LiveArtPage';
 import BlogPage from './components/BlogPage';
 
@@ -73,7 +72,6 @@ function App() {
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/refund" element={<RefundPage />} />
               <Route path="/kavya-picks" element={<GiftsPage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/live-art" element={<LiveArtPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="*" element={
