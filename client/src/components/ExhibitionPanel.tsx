@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const exhibitionData: Record<string, {
   title: string;
@@ -65,16 +65,11 @@ const exhibitionData: Record<string, {
   },
 
   'creative-hub-chitkara': {
-    title: 'Creative Hub',
+    title: 'Art Unleashed',
     date: '',
-    location: 'Chitkara University',
+    location: '',
     color: '#F4538A',
-    description: 'A vibrant workshop and exhibition at Chitkara University where students discovered the healing power of art. Bold ideas, young energy, and the belief that creativity changes how we feel from the inside out.',
-    stats: [
-      { num: '50+', label: 'Students' },
-      { num: '1', label: 'Day' },
-      { num: '∞', label: 'Memories' },
-    ],
+    description: 'Where young minds met colour, chaos and creativity. An unforgettable day of art, energy and pure expression at Chitkara University.',
     photos: [
       '/images/exhibitions/chitkara/1.jpg',
       '/images/exhibitions/chitkara/2.jpg',
@@ -121,7 +116,6 @@ const ShimlaContent = ({ ex, onClose }: any) => (
         </p>
       </div>
 
-      {/* All photos full size, stacked */}
       <div className="flex flex-col gap-4">
         {ex.photos.map((photo: string, i: number) => (
           <img
@@ -175,7 +169,6 @@ const Sector17Content = ({ ex, onClose }: any) => (
           className="flex flex-col gap-6 mb-12 pb-12"
           style={{ borderBottom: index < ex.stories.length - 1 ? '1px solid #f5f5f5' : 'none' }}
         >
-          {/* Full photo — no crop at all */}
           <img
             src={story.photo}
             alt={story.title}
@@ -193,7 +186,6 @@ const Sector17Content = ({ ex, onClose }: any) => (
       ))}
     </div>
 
-    {/* Remaining photos full size */}
     {ex.photos.slice(ex.stories.length).length > 0 && (
       <div className="max-w-2xl mx-auto px-6 mb-12">
         <p className="text-xs text-center uppercase tracking-widest text-gray-300 mb-6">More from the exhibit</p>
@@ -213,62 +205,86 @@ const Sector17Content = ({ ex, onClose }: any) => (
   </div>
 );
 
-// ─── CHITKARA: Gallery Wall ───────────────────────────────────────────────────
+// ─── ART UNLEASHED: Animated Photo Gallery ────────────────────────────────────
+const AnimatedPhoto = ({ photo, index, alt }: { photo: string; index: number; alt: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        breakInside: 'avoid',
+        marginBottom: '12px',
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
+        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`,
+      }}
+    >
+      <img
+        src={photo}
+        alt={alt}
+        className="w-full rounded-xl hover:scale-105 transition-transform duration-300"
+        style={{ display: 'block', objectFit: 'cover' }}
+      />
+    </div>
+  );
+};
+
 const ChitkaraContent = ({ ex, onClose }: any) => (
-  <div className="bg-white" style={{ minHeight: '100%' }}>
-    <div className="py-12 px-6 text-center" style={{ backgroundColor: '#F4538A' }}>
+  <div style={{ backgroundColor: '#fff', minHeight: '100%' }}>
+    {/* Hero */}
+    <div
+      className="px-6 pt-10 pb-10 text-center"
+      style={{ background: 'linear-gradient(135deg, #F4538A, #FAA300)' }}
+    >
       <button
         onClick={onClose}
-        className="mb-4 text-sm font-medium block mx-auto transition-opacity hover:opacity-70"
-        style={{ color: 'rgba(255,255,255,0.7)' }}
+        className="text-xs uppercase tracking-widest mb-6 block mx-auto transition-opacity hover:opacity-60"
+        style={{ color: 'rgba(255,255,255,0.6)' }}
       >
         ✕ Close
       </button>
-      <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>
+      <p className="text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
         {ex.location}
       </p>
-      <h1 className="text-4xl font-serif text-white mb-1">{ex.title}</h1>
-      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>Where young minds meet healing art</p>
+      <h1 className="font-serif mb-3" style={{ fontSize: '40px', color: 'white', lineHeight: 1.1 }}>
+        {ex.title}
+      </h1>
+      <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px', maxWidth: '400px', margin: '0 auto' }}>
+        {ex.description}
+      </p>
     </div>
 
-    {ex.stats && (
-      <div className="grid border-b" style={{ gridTemplateColumns: `repeat(${ex.stats.length}, 1fr)`, borderColor: '#f0f0f0' }}>
-        {ex.stats.map((stat: any, i: number) => (
-          <div key={i} className="text-center py-5" style={{ borderRight: i < ex.stats.length - 1 ? '1px solid #f0f0f0' : 'none' }}>
-            <span className="block text-2xl font-serif mb-1" style={{ color: '#F4538A' }}>{stat.num}</span>
-            <span className="text-xs uppercase tracking-widest text-gray-400">{stat.label}</span>
-          </div>
-        ))}
-      </div>
-    )}
-
-    <div className="py-8 px-6 max-w-2xl mx-auto text-center">
-      <p className="text-gray-500 leading-relaxed">{ex.description}</p>
-    </div>
-
-    {/* All photos full size stacked */}
-    <div className="px-6 max-w-2xl mx-auto mb-10 flex flex-col gap-4">
+    {/* Animated masonry gallery */}
+    <div className="px-4 pt-8 pb-10" style={{ columns: 2, gap: '12px' }}>
       {ex.photos.map((photo: string, i: number) => (
-        <img
-          key={i}
-          src={photo}
-          alt={`Photo ${i + 1}`}
-          className="w-full rounded-xl"
-          style={{ objectFit: 'contain', backgroundColor: '#fff0f5', display: 'block' }}
-        />
+        <AnimatedPhoto key={i} photo={photo} index={i} alt={`Art Unleashed ${i + 1}`} />
       ))}
     </div>
 
-    <div className="mx-6 mb-10 rounded-2xl py-8 px-6 text-center" style={{ backgroundColor: '#FFF0F5' }}>
+    {/* CTA */}
+    <div className="mx-4 mb-10 rounded-2xl py-8 px-6 text-center" style={{ backgroundColor: '#FFF0F5' }}>
       <h3 className="text-lg font-serif mb-2" style={{ color: '#F4538A' }}>Want to bring HTA to your campus?</h3>
       <p className="text-sm text-gray-400 mb-4">Kavya runs workshops and exhibitions for universities and schools.</p>
-      <button
-        onClick={onClose}
-        className="px-6 py-2 rounded-full text-white text-sm font-medium"
+      <a
+        href="https://wa.me/919877591063?text=Hey Kavya! I would love to bring HTA to our campus!"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-6 py-2 rounded-full text-white text-sm font-medium"
         style={{ backgroundColor: '#F4538A' }}
       >
-        Get in touch
-      </button>
+        Get in touch →
+      </a>
     </div>
   </div>
 );

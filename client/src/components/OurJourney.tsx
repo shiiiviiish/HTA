@@ -23,7 +23,7 @@ const exhibitions = [
   },
   {
     id: 'creative-hub-chitkara',
-    title: 'Creative Hub (Chitkara)',
+    title: 'Art Unleashed',
     date: '',
     location: 'Chitkara University',
     color: '#F4538A',
@@ -64,7 +64,6 @@ const timeline = [
   },
 ];
 
-// Hook to detect when element enters viewport
 const useInView = (threshold = 0.2) => {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -86,17 +85,16 @@ const useInView = (threshold = 0.2) => {
   return { ref, inView };
 };
 
-// Individual animated timeline item
 const TimelineItem = ({ item, index }: { item: typeof timeline[0]; index: number }) => {
   const { ref, inView } = useInView(0.2);
   const isLeft = index % 2 === 0;
 
   return (
     <div
-  ref={ref}
-  className="relative flex items-center mb-12 timeline-row"
-  style={{ flexDirection: isLeft ? 'row' : 'row-reverse' }}
->
+      ref={ref}
+      className="relative flex items-center mb-12 timeline-row"
+      style={{ flexDirection: isLeft ? 'row' : 'row-reverse' }}
+    >
       <div
         className="w-1/2 px-8"
         style={{
@@ -306,20 +304,20 @@ const OurJourney = () => {
       />
 
       <style>{`
-  @media (max-width: 768px) {
-    .timeline-row {
-      flex-direction: column !important;
-      align-items: center !important;
-    }
-    .timeline-row .w-1\/2 {
-      width: 90% !important;
-      padding: 0 !important;
-    }
-    .timeline-row .absolute {
-      display: none !important;
-    }
-  }
-`}</style>
+        @media (max-width: 768px) {
+          .timeline-row {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .timeline-row .w-1\/2 {
+            width: 90% !important;
+            padding: 0 !important;
+          }
+          .timeline-row .absolute {
+            display: none !important;
+          }
+        }
+      `}</style>
 
     </div>
   );
