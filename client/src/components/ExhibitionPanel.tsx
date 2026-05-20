@@ -237,12 +237,12 @@ const AnimatedPhoto = ({ photo, index, alt }: { photo: string; index: number; al
     <div
       ref={ref}
       style={{
-        breakInside: 'avoid',
-        marginBottom: '12px',
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
-        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`,
-      }}
+  breakInside: 'avoid',
+  marginBottom: '12px',
+  opacity: inView ? 1 : 0,
+  transform: inView ? 'translateY(0) scale(1)' : 'translateY(60px) scale(0.9)',
+  transition: `opacity 0.5s cubic-bezier(0.22,1,0.36,1) ${index * 0.1}s, transform 0.5s cubic-bezier(0.22,1,0.36,1) ${index * 0.1}s`,
+}}
     >
       <img
         src={photo}
