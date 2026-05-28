@@ -41,15 +41,6 @@ const joeyReviews = [
 
 const moods = [
   "Currently: Demanding belly rubs 🐾",
-  "Currently: Napping near Kavya's easel 😴",
-  "Currently: Judging your art taste 🧐",
-  "Currently: Stealing paintbrushes 🖌️",
-  "Currently: Being the goodest boy 🐶",
-  "Currently: Inspecting wet paint — very closely 👃",
-  "Currently: Photobombing Kavya's artwork 📸",
-  "Currently: Dreaming about biscuits 🍪",
-  "Currently: Supervising the studio with great authority 🎨",
-  "Currently: Sitting on Kavya's sketchbook 😅",
 ];
 
 const JoeyPage = () => {
@@ -269,6 +260,5 @@ const JoeyPage = () => {
 
     </div>
   );
-};
-
+}
 export default JoeyPage;
