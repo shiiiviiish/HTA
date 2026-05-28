@@ -10,6 +10,17 @@ const funFacts = [
   "Can smell a new canvas from 3 rooms away 👃",
 ];
 
+const schedule = [
+  { time: '7:00 AM', emoji: '🌅', activity: 'Wake up Kavya by sitting on her face' },
+  { time: '9:00 AM', emoji: '🎨', activity: 'Inspect the morning painting session' },
+  { time: '11:00 AM', emoji: '☀️', activity: 'Nap near the easel (very important work)' },
+  { time: '1:00 PM', emoji: '🍪', activity: 'Biscuit time — favourite part of the day' },
+  { time: '3:00 PM', emoji: '🖌️', activity: 'Steal a paintbrush or two' },
+  { time: '5:00 PM', emoji: '📸', activity: "Photobomb Kavya's Instagram reel" },
+  { time: '8:00 PM', emoji: '🌙', activity: 'Final art inspection before bed' },
+  { time: '9:00 PM', emoji: '😴', activity: 'Goodnight from the Chief Art Inspector' },
+];
+
 const joeyReviews = [
   {
     painting: "The Blue Daisy Series",
@@ -29,11 +40,16 @@ const joeyReviews = [
 ];
 
 const moods = [
+  "Currently: Demanding belly rubs 🐾",
   "Currently: Napping near Kavya's easel 😴",
   "Currently: Judging your art taste 🧐",
   "Currently: Stealing paintbrushes 🖌️",
   "Currently: Being the goodest boy 🐶",
-  "Currently: Demanding belly rubs 🐾",
+  "Currently: Inspecting wet paint — very closely 👃",
+  "Currently: Photobombing Kavya's artwork 📸",
+  "Currently: Dreaming about biscuits 🍪",
+  "Currently: Supervising the studio with great authority 🎨",
+  "Currently: Sitting on Kavya's sketchbook 😅",
 ];
 
 const JoeyPage = () => {
@@ -99,14 +115,40 @@ const JoeyPage = () => {
         </div>
       </div>
 
+      {/* A Day in Joey's Life */}
+      <div className="py-16 px-6" style={{ backgroundColor: '#FFF8F0' }}>
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-serif text-center mb-4">A Day in Joey's Life</h2>
+          <p className="text-center text-gray-500 mb-10">Very busy. Very important. Do not disturb.</p>
+          <div className="flex flex-col gap-4">
+            {schedule.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-4 p-4 rounded-2xl bg-white border"
+                style={{ borderColor: '#f0f0f0' }}
+              >
+                <span className="text-2xl flex-shrink-0">{item.emoji}</span>
+                <div className="flex-1">
+                  <p className="text-gray-700 text-sm font-medium">{item.activity}</p>
+                </div>
+                <span
+                  className="text-xs font-bold px-3 py-1 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: '#F5DD61', color: '#1a1a1a' }}
+                >
+                  {item.time}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Joey's Reels */}
       <div className="py-16 px-6" style={{ backgroundColor: '#F5DD61' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-center mb-4">Joey on Instagram 📸</h2>
           <p className="text-center text-gray-600 mb-10">Catch me being adorable on Kavya's Instagram!</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-
-            {/* Reel 1 */}
             <div style={{ width: '280px', height: '480px', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
               <iframe
                 src="https://www.instagram.com/reel/DOXuUVhD6jj/embed"
@@ -119,8 +161,6 @@ const JoeyPage = () => {
                 style={{ marginTop: '0px', display: 'block' }}
               />
             </div>
-
-            {/* Reel 2 */}
             <div style={{ width: '280px', height: '480px', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
               <iframe
                 src="https://www.instagram.com/reel/DNfam8Sv02V/embed"
@@ -133,7 +173,6 @@ const JoeyPage = () => {
                 style={{ marginTop: '0px', display: 'block' }}
               />
             </div>
-
           </div>
         </div>
       </div>
@@ -144,11 +183,7 @@ const JoeyPage = () => {
         <p className="text-center text-gray-500 mb-10">Official reviews by the Chief Art Inspector. Very credible. Very professional.</p>
         <div className="flex flex-col gap-6">
           {joeyReviews.map((review, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-2xl border"
-              style={{ backgroundColor: 'white', borderColor: '#f0f0f0' }}
-            >
+            <div key={i} className="p-6 rounded-2xl border" style={{ backgroundColor: 'white', borderColor: '#f0f0f0' }}>
               <div className="flex items-center gap-3 mb-3">
                 <img
                   src="/images/Joey.gif"
@@ -196,7 +231,6 @@ const JoeyPage = () => {
                   className="w-full h-full object-cover"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
-                {/* Placeholder comment — remove once real photo is added */}
                 <div
                   className="absolute inset-0 flex items-center justify-center text-center p-4"
                   style={{ backgroundColor: '#FFF0F5' }}
@@ -207,7 +241,7 @@ const JoeyPage = () => {
             ))}
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
-            📁 Add Joey's photos to <code>public/images/joey/</code> named 1.jpg, 2.jpg... and they'll appear here automatically!
+            📁 Add Joey's photos to <code>public/images/joey/</code> named 1.jpg, 2.jpg... and they'll appear here!
           </p>
         </div>
       </div>
