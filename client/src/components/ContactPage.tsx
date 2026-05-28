@@ -23,6 +23,7 @@ const ContactPage = () => {
           from_name: name,
           from_email: email,
           message: message,
+           reply_to: email,
         },
         'ttFjLSL0BfFfa5_1F'
       );
