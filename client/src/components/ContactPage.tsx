@@ -1,14 +1,44 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async () => {
+    if (!name || !email || !message) {
+      alert('Please fill in all fields!');
+      return;
+    }
+
+    setStatus('sending');
+
+    try {
+      await emailjs.send(
+        'service_otyr3nf',
+        'template_9plg1yd',
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        'ttFjLSL0BfFfa5_1F'
+      );
+      setStatus('success');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      setStatus('error');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
 
-      <div className="py-20 px-6 text-center" style={{backgroundColor: '#59D5E0'}}>
+      <div className="py-20 px-6 text-center" style={{ backgroundColor: '#59D5E0' }}>
         <h1 className="text-5xl font-serif mb-4 text-white">Get in Touch</h1>
         <p className="text-lg text-white">We would love to hear from you!</p>
       </div>
@@ -18,9 +48,14 @@ const ContactPage = () => {
 
           <div>
             <h2 className="text-2xl font-serif mb-8">Contact Kavya</h2>
-
             <div className="flex flex-col gap-6">
-              <a href="https://wa.me/919877591063?text=Heyyyyyyy%20Kavvyaaaaaa!%20Just%20sliding%20into%20your%20inbox%20to%20say%20hi%20and%20reach%20out!" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl" style={{backgroundColor: '#F5DD61'}}>
+              <a
+                href="https://wa.me/919877591063?text=Heyyyyyyy%20Kavvyaaaaaa!%20Just%20sliding%20into%20your%20inbox%20to%20say%20hi%20and%20reach%20out!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl"
+                style={{ backgroundColor: '#F5DD61' }}
+              >
                 <span className="text-3xl">💬</span>
                 <div>
                   <p className="font-bold">WhatsApp</p>
@@ -28,7 +63,11 @@ const ContactPage = () => {
                 </div>
               </a>
 
-              <a href="mailto:kavya@happinessthroughart.com" className="flex items-center gap-4 p-4 rounded-2xl" style={{backgroundColor: '#FAA300'}}>
+              <a
+                href="mailto:kavya@happinessthroughart.com"
+                className="flex items-center gap-4 p-4 rounded-2xl"
+                style={{ backgroundColor: '#FAA300' }}
+              >
                 <span className="text-3xl">📧</span>
                 <div>
                   <p className="font-bold">Email</p>
@@ -36,7 +75,13 @@ const ContactPage = () => {
                 </div>
               </a>
 
-              <a href="https://www.instagram.com/happinessthroughart" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl" style={{backgroundColor: '#F4538A'}}>
+              <a
+                href="https://www.instagram.com/happinessthroughart"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl"
+                style={{ backgroundColor: '#F4538A' }}
+              >
                 <span className="text-3xl">📸</span>
                 <div>
                   <p className="font-bold text-white">Instagram</p>
@@ -70,11 +115,26 @@ const ContactPage = () => {
                 rows={5}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-gray-500"
               />
+
+              {/* Status messages */}
+              {status === 'success' && (
+                <div className="p-3 rounded-xl text-center text-sm font-medium" style={{ backgroundColor: '#d4edda', color: '#155724' }}>
+                  ✅ Message sent! Kavya will get back to you soon.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="p-3 rounded-xl text-center text-sm font-medium" style={{ backgroundColor: '#f8d7da', color: '#721c24' }}>
+                  ❌ Something went wrong. Please try WhatsApp instead.
+                </div>
+              )}
+
               <button
-                className="w-full py-3 rounded-xl text-white font-medium"
-                style={{backgroundColor: '#59D5E0'}}
+                onClick={handleSubmit}
+                disabled={status === 'sending'}
+                className="w-full py-3 rounded-xl text-white font-medium transition-opacity hover:opacity-80"
+                style={{ backgroundColor: '#59D5E0', opacity: status === 'sending' ? 0.7 : 1 }}
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
             </div>
           </div>
