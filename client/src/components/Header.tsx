@@ -235,10 +235,14 @@ export function Header() {
               )}
             </div>
 
-            <button aria-label="Shipping" className="hover:opacity-75">
-              <Truck size={24} />
-            </button>
-
+            <div className="relative group">
+  <button aria-label="Shipping" className="hover:opacity-75">
+    <Truck size={24} />
+  </button>
+  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: '#FF6B35' }}>
+    Shipping tracker — Coming Soon!
+  </div>
+</div>
             <button
               aria-label="Cart"
               className="relative p-2 hover:opacity-75"
