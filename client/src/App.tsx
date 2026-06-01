@@ -29,6 +29,16 @@ import LiveArtPage from './components/LiveArtPage';
 import BlogPage from './components/BlogPage';
 import JoeyPage from './components/JoeyPage';
 
+
+import { useLocation } from 'react-router-dom';
+
+const KavyaMessageWrapper = () => {
+  const location = useLocation();
+  const showOn = ['/', '/our-journey'];
+  if (!showOn.includes(location.pathname)) return null;
+  return <KavyaMessage />;
+};
+
 function App() {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -109,7 +119,7 @@ function App() {
           <Footer />
         </div>
 
-        <KavyaMessage />
+       <KavyaMessageWrapper />
         <JoeyMascot />
 
         {showScroll && (
