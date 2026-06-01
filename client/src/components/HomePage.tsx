@@ -21,7 +21,7 @@ const HomePage = () => {
       <Link
         to="/live-art"
         className="block w-full py-3 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all"
-        style={{ backgroundColor: '#FF6B35' }}
+       style={{ backgroundColor: '#FF6B35', borderBottom: '2px solid white' }}
       >
         🎨 Transform your space with Live Art by Kavya — Homes, Cafés, Offices →
       </Link>
@@ -29,7 +29,8 @@ const HomePage = () => {
       <HeroCarousel />
 
       <AnimateOnScroll animation="opacity-100 translate-y-0" delay={100}>
-        <Link to="/gifts" className="block w-full py-4 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all" style={{ backgroundColor: '#FF6B35' }}>
+        <Link to="/gifts" className="block w-full py-4 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all" 
+        style={{ backgroundColor: '#FF6B35' }}>
           💛 If Kavya could gift you — See her top picks!
         </Link>
         <ProductGallery />
