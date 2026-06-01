@@ -118,28 +118,65 @@ export function Header() {
               />
               <Search className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               {query && (
-                <button
-                  onClick={() => { setQuery(''); setShowResults(false); }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                >
-                  <X size={16} />
-                </button>
+               <div className="flex flex-col gap-3 items-center">
+  <button
+    onClick={() => { setShowResults(false); setQuery(''); }}
+    className="px-6 py-3 rounded-full text-white font-medium"
+    style={{ backgroundColor: '#FF6B35' }}
+  >
+    Back to browsing 🐾
+  </button>
+  <Link
+    to="/shop"
+    onClick={() => { setShowResults(false); setQuery(''); }}
+    className="px-6 py-3 rounded-full font-medium"
+    style={{ backgroundColor: '#1a1a1a', color: 'white' }}
+  >
+    Browse all products 🛍️
+  </Link>
+</div>
               )}
 
               {/* Search results dropdown */}
               {showResults && query.trim().length > 1 && (
                 <div className="absolute top-full left-0 right-0 bg-white shadow-2xl rounded-2xl mt-2 z-50 overflow-hidden border border-gray-100">
                   {noResults ? (
-                    <div className="p-6 text-center">
-                      <img
-                        src="/images/Joey.gif"
-                        alt="Joey"
-                        className="w-16 h-16 rounded-full object-cover mx-auto mb-3"
-                        style={{ border: '3px solid #FAA300' }}
-                      />
-                      <p className="font-serif text-base mb-1">Joey looked everywhere...</p>
-                      <p className="text-sm text-gray-400">No products found for "<strong>{query}</strong>"</p>
-                    </div>
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center"
+    style={{ backgroundColor: 'rgba(245,221,97,0.97)' }}
+    onClick={() => { setShowResults(false); setQuery(''); }}
+  >
+    <div className="text-center p-8 max-w-sm mx-auto">
+      <img
+        src="/images/Joey.gif"
+        alt="Joey"
+        className="w-32 h-32 rounded-full object-cover mx-auto mb-6 shadow-xl"
+        style={{ border: '4px solid #FAA300' }}
+      />
+      <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#FF6B35' }}>
+        Woof! Search failed 🐾
+      </p>
+      <h2 className="text-3xl font-serif mb-3" style={{ color: '#1a1a1a' }}>
+        Joey looked everywhere...
+      </h2>
+      <p className="text-gray-600 mb-2">
+        No products found for
+      </p>
+      <p className="font-bold text-lg mb-6" style={{ color: '#FF6B35' }}>
+        "{query}"
+      </p>
+      <p className="text-sm text-gray-500 mb-6">
+        Maybe try searching for "diary", "coasters", "bookmark" or "painting"?
+      </p>
+      <button
+        onClick={() => { setShowResults(false); setQuery(''); }}
+        className="px-6 py-3 rounded-full text-white font-medium"
+        style={{ backgroundColor: '#FF6B35' }}
+      >
+        Back to browsing 🐾
+      </button>
+    </div>
+  </div>
                   ) : (
                     <div className="max-h-72 overflow-y-auto">
                       {results.slice(0, 6).map(product => (
