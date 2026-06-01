@@ -21,7 +21,7 @@ const HomePage = () => {
       <Link
         to="/live-art"
         className="block w-full py-3 px-6 text-center text-white text-sm font-medium hover:opacity-90 transition-all"
-       style={{ backgroundColor: '#FF6B35', borderBottom: '2px solid white' }}
+       style={{ backgroundColor: '#FF6B35', borderBottom: '2px solid white', borderTop: '4px solid white' }}
       >
         🎨 Transform your space with Live Art by Kavya — Homes, Cafés, Offices →
       </Link>
